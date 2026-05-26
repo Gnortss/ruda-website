@@ -1,34 +1,45 @@
 ---
-import type { Dict } from '../i18n';
-interface Props {
-  t: Dict;
-}
-const { t } = Astro.props;
+import type { Dict, Locale } from '../i18n';
+import { localizedRoute } from '../i18n/routes';
+
+interface Props { t: Dict; locale: Locale; }
+const { t, locale } = Astro.props;
+
+const serviceLinks = [
+  { href: localizedRoute('milling',  locale), label: t.servicePages.milling.h1.split('—')[0].trim() },
+  { href: localizedRoute('turning',  locale), label: t.servicePages.turning.h1.split('—')[0].trim() },
+  { href: localizedRoute('grinding', locale), label: t.servicePages.grinding.h1.split('—')[0].trim() },
+];
 ---
 <footer class="site-footer">
-  <img src="/images/logo/ruda_logo_wide.png" alt="RUDA" />
-  <span>{t.footer.copyright}</span>
+  <div class="site-footer__wrap">
+    <div class="site-footer__top">
+      <img src="/images/logo/ruda_logo_wide.png" alt={t.alt.logo} class="site-footer__logo" />
+      <nav class="site-footer__nav" aria-label={t.footer.servicesLinks}>
+        <span class="site-footer__nav-title">{t.footer.servicesLinks}</span>
+        {serviceLinks.map((l) => (
+          <a href={l.href} class="site-footer__link">{l.label}</a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="site-footer__legal">{t.footer.legal}</div>
+    <div class="site-footer__copy">{t.footer.copyright}</div>
+  </div>
 </footer>
 
 <style>
-  .site-footer {
-    padding: 32px clamp(20px, 4vw, 56px);
-    border-top: 1px solid #eee;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .site-footer img {
-    height: 22px;
-    opacity: 0.2;
-  }
-  .site-footer span {
-    font-size: 11px;
-    color: #bbb;
-    letter-spacing: 0.04em;
+  .site-footer { padding: 32px clamp(20px, 4vw, 56px) 24px; border-top: 1px solid #eee; }
+  .site-footer__wrap { max-width: 1200px; margin: 0 auto; }
+  .site-footer__top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; margin-bottom: 24px; }
+  .site-footer__logo { height: 22px; opacity: 0.25; }
+  .site-footer__nav { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 11px; }
+  .site-footer__nav-title { color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+  .site-footer__link { color: #666; text-decoration: none; transition: color 0.2s; }
+  .site-footer__link:hover { color: var(--color-cyan); }
+  .site-footer__legal { font-size: 11px; color: #aaa; letter-spacing: 0.02em; line-height: 1.7; margin-bottom: 6px; }
+  .site-footer__copy { font-size: 11px; color: #ccc; letter-spacing: 0.04em; }
+  @media (max-width: 600px) {
+    .site-footer__top { flex-direction: column; align-items: flex-start; }
   }
 </style>
