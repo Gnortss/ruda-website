@@ -1,0 +1,119 @@
+---
+import type { Dict, Locale } from '../i18n';
+import { localizedRoute, type RouteKey } from '../i18n/routes';
+import { Image } from 'astro:assets';
+import FAQ from './FAQ.astro';
+import milling from '../assets/services/milling.png';
+import turning from '../assets/services/turning.png';
+import grinding from '../assets/services/grinding.png';
+
+type ServiceKey = 'milling' | 'turning' | 'grinding';
+
+interface Props {
+  t: Dict;
+  locale: Locale;
+  serviceKey: ServiceKey;
+}
+const { t, locale, serviceKey } = Astro.props;
+
+const IMG: Record<ServiceKey, ImageMetadata> = { milling, turning, grinding };
+const ROUTE_KEY: Record<ServiceKey, RouteKey> = { milling: 'milling', turning: 'turning', grinding: 'grinding' };
+
+const sp = t.servicePages[serviceKey];
+
+const others: ServiceKey[] = (['milling', 'turning', 'grinding'] as ServiceKey[]).filter(k => k !== serviceKey);
+const otherLinks = others.map(k => ({
+  href: localizedRoute(ROUTE_KEY[k], locale),
+  label: t.servicePages[k].h1.split('—')[0].trim(),
+}));
+
+const homeHref = localizedRoute('home', locale);
+const servicesHref = localizedRoute('services', locale);
+---
+<article class="svc-page">
+  <div class="svc-page__wrap">
+    <nav class="svc-page__crumbs" aria-label="Breadcrumb">
+      <a href={homeHref}>{locale === 'sl' ? 'Domov' : locale === 'de' ? 'Startseite' : 'Home'}</a>
+      <span>›</span>
+      <a href={servicesHref}>{t.servicesIndex.heading}</a>
+      <span>›</span>
+      <span aria-current="page">{t.services.items[(['milling','turning','grinding'] as ServiceKey[]).indexOf(serviceKey)].title}</span>
+    </nav>
+
+    <header class="svc-page__hero">
+      <div class="svc-page__hero-text">
+        <h1 class="svc-page__title">{sp.h1}</h1>
+        <p class="svc-page__lead">{sp.lead}</p>
+        <a href={`${homeHref}#contact`} class="btn btn-primary">{sp.ctaLabel}</a>
+      </div>
+      <div class="svc-page__hero-img">
+        <Image src={IMG[serviceKey]} alt={t.alt.services[serviceKey]} widths={[400, 600, 800, 1000]} sizes="(max-width: 768px) 100vw, 500px" loading="eager" />
+      </div>
+    </header>
+
+    <section class="svc-page__section">
+      <h2>{sp.whatHeading}</h2>
+      <ul class="svc-page__bullets">
+        {sp.what.map((b) => (
+          <li><span class="svc-page__dash">—</span>{b}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="svc-page__section">
+      <h2>{sp.materialsHeading}</h2>
+      <p>{sp.materials}</p>
+    </section>
+
+    <section class="svc-page__section">
+      <h2>{sp.applicationsHeading}</h2>
+      <p>{sp.applications}</p>
+    </section>
+
+    <FAQ heading={sp.faqHeading} items={sp.faq} />
+
+    <section class="svc-page__cross">
+      <h3>{locale === 'sl' ? 'Druge storitve' : locale === 'de' ? 'Andere Leistungen' : 'Other services'}</h3>
+      <div class="svc-page__cross-links">
+        {otherLinks.map((l) => (
+          <a href={l.href} class="svc-page__cross-link">{l.label} →</a>
+        ))}
+      </div>
+    </section>
+
+    <section class="svc-page__cta-strip">
+      <h2>{sp.ctaLabel}</h2>
+      <a href={`${homeHref}#contact`} class="btn btn-primary-light">{sp.ctaLabel}</a>
+    </section>
+  </div>
+</article>
+
+<style>
+  .svc-page { padding: 96px clamp(20px, 4vw, 56px) clamp(60px, 8vw, 88px); }
+  .svc-page__wrap { max-width: 960px; margin: 0 auto; }
+  .svc-page__crumbs { font-size: 12px; color: #999; margin-bottom: 32px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .svc-page__crumbs a { color: #999; text-decoration: none; }
+  .svc-page__crumbs a:hover { color: var(--color-cyan); }
+  .svc-page__hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 64px; }
+  .svc-page__title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 52px); letter-spacing: 0.04em; color: var(--color-dark); margin-bottom: 20px; line-height: 1.05; }
+  .svc-page__lead { font-size: 17px; color: #555; line-height: 1.7; margin-bottom: 28px; }
+  .svc-page__hero-img { background: #fff; padding: 24px; border: 1px solid #eee; }
+  .svc-page__hero-img :global(img) { max-width: 100%; height: auto; object-fit: contain; max-height: 340px; }
+  .svc-page__section { margin-bottom: 48px; }
+  .svc-page__section h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); letter-spacing: 0.04em; color: var(--color-dark); margin-bottom: 16px; }
+  .svc-page__section p { font-size: 15px; color: #555; line-height: 1.75; max-width: 720px; }
+  .svc-page__bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; max-width: 720px; }
+  .svc-page__bullets li { display: flex; gap: 12px; font-size: 15px; color: #555; line-height: 1.6; }
+  .svc-page__dash { color: var(--color-cyan); font-weight: 700; flex-shrink: 0; }
+  .svc-page__cross { margin: 48px 0; padding: 32px 0; border-top: 1px solid #eee; }
+  .svc-page__cross h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-cyan); margin-bottom: 16px; }
+  .svc-page__cross-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .svc-page__cross-link { font-size: 16px; font-weight: 600; color: var(--color-dark); text-decoration: none; border-bottom: 2px solid var(--color-cyan); padding-bottom: 2px; }
+  .svc-page__cross-link:hover { color: var(--color-cyan); }
+  .svc-page__cta-strip { background: var(--color-dark); color: #fff; padding: 48px; text-align: center; margin-top: 48px; }
+  .svc-page__cta-strip h2 { color: #fff; margin-bottom: 24px; font-family: var(--font-display); font-size: 32px; letter-spacing: 0.04em; }
+  @media (max-width: 768px) {
+    .svc-page__hero { grid-template-columns: 1fr; gap: 24px; }
+    .svc-page__cta-strip { padding: 32px 20px; }
+  }
+</style>
