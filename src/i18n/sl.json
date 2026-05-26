@@ -1,11 +1,11 @@
 {
   "meta": {
     "title": "RUDA Orodjarstvo — Precizno orodjarstvo",
-    "description": "CNC frezanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC in obdelava karbida (WIDIA)."
+    "description": "CNC rezkanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC in obdelava karbidne trdine (WIDIA)."
   },
   "nav": {
     "services": "Storitve",
-    "strengths": "Prednosti",
+    "strengths": "Naše prednosti",
     "products": "Naše delo",
     "contact": "Kontakt"
   },
@@ -13,7 +13,7 @@
     "eyebrow": "Orodjarji od leta 2007",
     "titleLine1": "Precizno",
     "titleLine2": "orodjarstvo",
-    "lead": "CNC frezanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC in obdelava karbida (WIDIA).",
+    "lead": "CNC rezkanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC in obdelava karbidne trdine (WIDIA).",
     "ctaPrimary": "Naše storitve",
     "ctaSecondary": "Kontaktirajte nas",
     "facts": {
@@ -28,7 +28,7 @@
     },
     "slides": [
       "Okolica / zunanjost delavnice",
-      "CNC frezalni stroj",
+      "CNC rezkalni stroj",
       "Notranjost delavnice",
       "Detajl stroja / obdelovanca"
     ]
@@ -37,12 +37,12 @@
     "heading": "Storitve",
     "items": [
       {
-        "title": "Frezanje",
+        "title": "Rezkanje",
         "spec": "Maks. 65 HRC",
         "bullets": [
-          "5-osno frezanje vseh vrst materialov",
-          "Trdo frezanje do 65 HRC",
-          "Obdelava karbida / WIDIA",
+          "5-osno rezkanje vseh vrst materialov",
+          "Rezkanje v trdo do 65 HRC",
+          "Rezkanje karbidnih trdin – WIDIA",
           "Posamični kosi in prototipi",
           "Maloserijska in srednjeserijska proizvodnja"
         ]
@@ -60,31 +60,19 @@
         "title": "Brušenje",
         "spec": "4-osno",
         "bullets": [
-          "Plansko brušenje",
+          "Ploskovno brušenje",
           "4-osno profilno brušenje"
         ]
       }
     ]
   },
   "strengths": {
-    "heading": "Prednosti",
+    "heading": "Naše prednosti",
     "items": [
-      {
-        "title": "Obdelava trdih materialov in karbida",
-        "desc": "Izdelki do 65 HRC in obdelava karbida (WIDIA) — materiali, ki jih večina delavnic ne more obdelati"
-      },
-      {
-        "title": "Visokoprecizijska obdelava",
-        "desc": "Ozke tolerance in ponovljiva natančnost za štancanje, brizganje in oblikovne komponente"
-      },
-      {
-        "title": "Štancanje in oblikovanje",
-        "desc": "Orodja z zahtevno geometrijo in finimi površinami"
-      },
-      {
-        "title": "Izdelava mikro izdelkov",
-        "desc": "Izjemno majhni, zahtevni deli, ki potrebujejo specializirano orodje"
-      }
+      { "title": "Obdelava trdih materialov in karbida", "desc": "Izdelava izdelkov do trdote 65 HRC ter obdelava karbidne trdine (WIDIA)" },
+      { "title": "Visokoprecizijska obdelava", "desc": "Izdelava izdelkov, kjer je zahtevana visoka natančnost obdelave" },
+      { "title": "Štancanje in oblikovanje", "desc": "Izdelava izdelkov za štancanje, brizganje in preoblikovanje" },
+      { "title": "Izdelava mikro izdelkov", "desc": "Izdelava mikro izdelkov" }
     ]
   },
   "products": {
@@ -93,22 +81,130 @@
       "Obdelan jeklen element",
       "Karbidni vložek",
       "Štančno orodje",
-      "Frezan prototip",
+      "Rezkan prototip",
       "Precizen kalup",
       "Mikro del",
       "Oblikovno orodje",
       "Struženo gred"
     ]
   },
+  "servicesIndex": {
+    "title": "Storitve — CNC rezkanje, struženje, brušenje | RUDA Orodjarstvo",
+    "description": "CNC rezkanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC, karbidna trdina (WIDIA), 5-osno rezkanje. Spodnja Idrija.",
+    "heading": "Storitve",
+    "intro": "Tri ključne storitve, vse na enem mestu: CNC rezkanje, struženje in precizijsko brušenje. Specialnost RUDA Orodjarstva so trdi materiali in karbid (WIDIA).",
+    "ctaLabel": "Več o storitvi"
+  },
+  "servicePages": {
+    "milling": {
+      "slug": "rezkanje",
+      "title": "Rezkanje (5-osno CNC, do 65 HRC) — RUDA Orodjarstvo",
+      "description": "5-osno CNC rezkanje vseh materialov, vključno s trdimi (do 65 HRC) in karbidno trdino (WIDIA). Posamični kosi, prototipi, male in srednje serije. Spodnja Idrija.",
+      "h1": "Rezkanje — 5-osno CNC do 65 HRC",
+      "lead": "5-osno CNC rezkanje vseh materialov, vključno s kaljenim orodnim jeklom do 65 HRC in karbidno trdino (WIDIA). Posamični kosi, prototipi in male do srednje serije.",
+      "whatHeading": "Kaj rezkamo",
+      "what": [
+        "5-osno rezkanje vseh vrst materialov",
+        "Rezkanje v trdo do 65 HRC",
+        "Rezkanje karbidnih trdin – WIDIA",
+        "Izdelava unikatov in prototipov",
+        "Mala in srednja serijska proizvodnja"
+      ],
+      "materialsHeading": "Materiali in specifikacije",
+      "materials": "Vsa standardna orodna jekla (1.2080, 1.2363, 1.2379, 1.2767, K340), nerjavna jekla, aluminij, baker, mesing, kaljeno jeklo do 65 HRC in karbidna trdina (WIDIA). Tolerance prilagodimo zahtevam projekta.",
+      "applicationsHeading": "Tipične aplikacije",
+      "applications": "Štančna orodja, orodja za brizganje, oblikovna orodja, kalupi za tlačno litje, precizijski deli za strojegradnjo, mikro-deli za medicinsko in elektroniko, prototipi.",
+      "faqHeading": "Pogosta vprašanja",
+      "faq": [
+        { "q": "Do kakšne trdote rezkate?", "a": "Do 65 HRC, vključno s kaljenim orodnim jeklom in karbidno trdino (WIDIA)." },
+        { "q": "Ali ponujate 5-osno rezkanje?", "a": "Da — vse materiale, vključno s trdimi materiali in karbidno trdino." },
+        { "q": "Lahko izdelate posamičen kos ali samo serije?", "a": "Oboje — posamične kose, prototipe in male do srednje serije." },
+        { "q": "Katere materiale rezkate?", "a": "Vsa standardna orodna jekla, nerjavna jekla, aluminij, karbidno trdino (WIDIA) in kaljena jekla do 65 HRC." },
+        { "q": "Kje se nahajate?", "a": "Spodnja Idrija, Slovenija. Pošiljamo po vsej EU." }
+      ],
+      "ctaLabel": "Povprašajte za ponudbo"
+    },
+    "turning": {
+      "slug": "struzenje",
+      "title": "Struženje — CNC, vsi materiali — RUDA Orodjarstvo",
+      "description": "CNC struženje vseh vrst materialov. Prototipi in mala do srednja serijska proizvodnja. Visoka natančnost. Spodnja Idrija.",
+      "h1": "Struženje — CNC, vsi materiali",
+      "lead": "CNC struženje vseh vrst materialov. Prototipi in male do srednje serije, z visoko natančnostjo in ponovljivostjo.",
+      "whatHeading": "Kaj stružimo",
+      "what": [
+        "Struženje vseh vrst materialov",
+        "Izdelava prototipov",
+        "Mala in srednja serijska proizvodnja"
+      ],
+      "materialsHeading": "Materiali in specifikacije",
+      "materials": "Konstrukcijska in nerjavna jekla, orodna jekla, aluminij, baker, medenina, plastika. Premeri od mikro-dimenzij do tipičnih strojegradbenih delov.",
+      "applicationsHeading": "Tipične aplikacije",
+      "applications": "Precizijske gredi, čepi, puše, pestiči, vodila, deli za štančna in brizgalna orodja, prototipi delov pred serijsko proizvodnjo.",
+      "faqHeading": "Pogosta vprašanja",
+      "faq": [
+        { "q": "Kakšno natančnost dosegate pri struženju?", "a": "Tolerance prilagodimo zahtevam projekta, tudi mikronske." },
+        { "q": "Ali izdelujete prototipe?", "a": "Da — od posameznih kosov do prototipnih serij." },
+        { "q": "Katere materiale stružite?", "a": "Vse običajne konstrukcijske, nerjavne in orodne materiale, aluminij, baker, medenino in plastiko." },
+        { "q": "Kakšne so tipične serije?", "a": "Mala in srednja serijska proizvodnja, pogosto v kombinaciji z rezkanjem in brušenjem." }
+      ],
+      "ctaLabel": "Povprašajte za ponudbo"
+    },
+    "grinding": {
+      "slug": "brusenje",
+      "title": "Brušenje — ploskovno in 4-osno profilno — RUDA Orodjarstvo",
+      "description": "Ploskovno brušenje in 4-osno profilno brušenje. Precizijske komponente za štancanje in oblikovne procese. Spodnja Idrija.",
+      "h1": "Brušenje — ploskovno in 4-osno profilno",
+      "lead": "Ploskovno brušenje in 4-osno profilno brušenje za precizijske komponente. Visoka kakovost površin in zahtevne geometrije.",
+      "whatHeading": "Kaj brusimo",
+      "what": [
+        "Ploskovno brušenje",
+        "4-osno profilno brušenje"
+      ],
+      "materialsHeading": "Materiali in specifikacije",
+      "materials": "Kaljena orodna jekla, karbidna trdina (WIDIA), nerjavna jekla. Tipično za štančna in oblikovna orodja, kjer se zahteva fina površina in ozke tolerance.",
+      "applicationsHeading": "Tipične aplikacije",
+      "applications": "Štančne plošče, oblikovni vložki, vodila, profilne stranice orodij, finalna obdelava kaljenih komponent.",
+      "faqHeading": "Pogosta vprašanja",
+      "faq": [
+        { "q": "Kakšno hrapavost dosegate?", "a": "Odvisno od zahtev — pripravimo finalne brušene površine v ustrezni kakovosti." },
+        { "q": "Ali ponujate 4-osno profilno brušenje?", "a": "Da — 4-osno profilno brušenje za zahtevne geometrije." },
+        { "q": "Katere materiale brusite?", "a": "Kaljena orodna jekla, karbidno trdino (WIDIA) in nerjavna jekla." },
+        { "q": "Ali kombinirate brušenje z drugimi storitvami?", "a": "Da — pogosto sledi rezkanju kot finalna obdelava precizijskih komponent." }
+      ],
+      "ctaLabel": "Povprašajte za ponudbo"
+    }
+  },
+  "alt": {
+    "logo": "RUDA Orodjarstvo — precizijsko orodjarstvo",
+    "services": {
+      "milling": "5-osni CNC rezkalni stroj v delavnici RUDA Orodjarstvo",
+      "turning": "CNC stružnica v delavnici RUDA Orodjarstvo",
+      "grinding": "Brusilni stroj v delavnici RUDA Orodjarstvo"
+    },
+    "strengths": {
+      "hardCarbide": "Obdelan kos iz kaljenega jekla in karbidne trdine",
+      "precision": "Precizijska komponenta z ozkimi tolerancami",
+      "stamping": "Štančno orodje iz kaljenega jekla",
+      "micro": "Mikro precizijski del"
+    }
+  },
   "contact": {
     "heading": "Kontakt",
-    "eyebrow": "Stopite v stik",
+    "eyebrow": "Splošne informacije",
+    "companyHeading": "Podatki podjetja",
     "company": "Damjan Rupnik s.p.",
     "address": "Ledine 34, 5281 Spodnja Idrija",
     "country": "Slovenija",
+    "vatLabel": "DŠ",
+    "vat": "SI 52946398",
+    "ibanLabel": "IBAN",
+    "iban": "SI56 0400 0027 6293 480",
     "mapLabel": "Google Maps — Spodnja Idrija"
   },
   "footer": {
-    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slovenija"
+    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slovenija",
+    "legal": "Damjan Rupnik s.p. · Ledine 34, 5281 Spodnja Idrija · DŠ: SI 52946398 · IBAN: SI56 0400 0027 6293 480",
+    "servicesLinks": "Storitve",
+    "backToTop": "Na vrh"
   }
 }
