@@ -55,3 +55,64 @@ export function buildLocalBusinessSchema(_locale: Locale): object {
     },
   };
 }
+
+export interface ServiceSchemaInput {
+  key: 'milling' | 'turning' | 'grinding';
+  locale: Locale;
+  name: string;
+  description: string;
+  offers: string[];
+}
+
+export function buildServiceSchema(input: ServiceSchemaInput): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: input.name,
+    serviceType: input.name,
+    provider: { '@id': ORG_ID },
+    areaServed: [
+      { '@type': 'Country', name: 'Slovenia' },
+      { '@type': 'Country', name: 'Germany' },
+      { '@type': 'Country', name: 'Austria' },
+      { '@type': 'Country', name: 'Italy' },
+    ],
+    description: input.description,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      itemListElement: input.offers.map((label) => ({
+        '@type': 'Offer',
+        name: label,
+      })),
+    },
+  };
+}
+
+export interface BreadcrumbItem { name: string; url: string; }
+
+export function buildBreadcrumbSchema(items: BreadcrumbItem[]): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: it.name,
+      item: it.url,
+    })),
+  };
+}
+
+export interface FAQItem { q: string; a: string; }
+
+export function buildFAQSchema(items: FAQItem[]): object {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  };
+}
