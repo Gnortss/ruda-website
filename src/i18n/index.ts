@@ -18,18 +18,18 @@ export function localeLabel(locale: Locale): string {
   return locale.toUpperCase();
 }
 
+export function detectLocaleFromPath(pathname: string): Locale {
+  const match = pathname.match(/^\/(en|de)(\/|$)/);
+  return (match?.[1] as Locale) ?? defaultLocale;
+}
+
 /**
- * Returns the path on the target locale for the current page.
- * Default locale (sl) lives at "/", others at "/en/", "/de/".
+ * For the legacy single-page case (homepage). Pages with locale-specific slugs
+ * (service subpages) use the routes table in `./routes.ts` instead.
  */
 export function localizedPath(target: Locale, currentPath: string): string {
   const cleaned = currentPath.replace(/^\/(en|de)(\/|$)/, '/');
   if (target === defaultLocale) return cleaned || '/';
   const tail = cleaned === '/' ? '' : cleaned;
   return `/${target}${tail}`;
-}
-
-export function detectLocaleFromPath(pathname: string): Locale {
-  const match = pathname.match(/^\/(en|de)(\/|$)/);
-  return (match?.[1] as Locale) ?? defaultLocale;
 }
