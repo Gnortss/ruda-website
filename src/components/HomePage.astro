@@ -1,5 +1,6 @@
 ---
 import { type Locale, getDict } from '../i18n';
+import { buildLocalBusinessSchema } from '../lib/schema';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from './Nav.astro';
 import Hero from './Hero.astro';
@@ -14,12 +15,19 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = getDict(locale);
+const structuredData = buildLocalBusinessSchema(locale);
 ---
-<BaseLayout locale={locale} title={t.meta.title} description={t.meta.description}>
+<BaseLayout
+  locale={locale}
+  routeKey="home"
+  title={t.meta.title}
+  description={t.meta.description}
+  structuredData={structuredData}
+>
   <Nav locale={locale} t={t} />
   <main>
     <Hero t={t} />
-    <Services t={t} />
+    <Services t={t} locale={locale} />
     <Strengths t={t} />
     <Products t={t} />
     <Contact t={t} />

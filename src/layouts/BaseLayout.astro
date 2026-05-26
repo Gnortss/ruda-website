@@ -1,16 +1,47 @@
 ---
 import '../styles/global.css';
-import { locales, localizedPath, type Locale } from '../i18n';
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/700.css';
+import '@fontsource/bebas-neue/400.css';
+import '@fontsource/dm-mono/400.css';
+import '@fontsource/dm-mono/500.css';
+
+import { locales, type Locale } from '../i18n';
+import { routes, type RouteKey } from '../i18n/routes';
 
 interface Props {
   locale: Locale;
+  routeKey: RouteKey;
   title: string;
   description: string;
+  ogImage?: string;
+  noindex?: boolean;
+  structuredData?: object | object[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { locale, title, description } = Astro.props;
+const {
+  locale,
+  routeKey,
+  title,
+  description,
+  ogImage = '/images/logo/ruda_logo.png',
+  noindex = false,
+  structuredData,
+} = Astro.props;
+
 const pathname = Astro.url.pathname;
 const canonical = new URL(pathname, Astro.site).toString();
+const ogImageUrl = new URL(ogImage, Astro.site).toString();
+
+const gscVerification = import.meta.env.PUBLIC_GSC_VERIFICATION;
+
+const schemas: object[] = Array.isArray(structuredData)
+  ? structuredData
+  : structuredData
+    ? [structuredData]
+    : [];
 ---
 <!DOCTYPE html>
 <html lang={locale}>
@@ -19,40 +50,56 @@ const canonical = new URL(pathname, Astro.site).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    {gscVerification && (
+      <meta name="google-site-verification" content={gscVerification} />
+    )}
     <link rel="canonical" href={canonical} />
+
     {locales.map((alt) => (
       <link
         rel="alternate"
         hreflang={alt}
-        href={new URL(localizedPath(alt, pathname), Astro.site).toString()}
+        href={new URL(routes[routeKey][alt], Astro.site).toString()}
       />
     ))}
     <link
       rel="alternate"
       hreflang="x-default"
-      href={new URL(localizedPath('sl', pathname), Astro.site).toString()}
+      href={new URL(routes[routeKey].sl, Astro.site).toString()}
     />
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL('/images/logo/ruda_logo.png', Astro.site).toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={locale === 'sl' ? 'sl_SI' : locale === 'de' ? 'de_DE' : 'en_US'} />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Geo hints (legacy but harmless) -->
+    <meta name="geo.region" content="SI" />
+    <meta name="geo.placename" content="Spodnja Idrija" />
+    <meta name="geo.position" content="46.039576;14.049150" />
+    <meta name="ICBM" content="46.039576, 14.049150" />
 
     <link rel="icon" type="image/png" href="/images/logo/ruda_logo_transparent.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)}></script>
+    ))}
   </head>
   <body>
     <slot />
 
     <script>
-      // Scroll-reveal: add .visible to .reveal elements when they enter the viewport.
+      // Scroll-reveal
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -68,7 +115,7 @@ const canonical = new URL(pathname, Astro.site).toString();
         .querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
         .forEach((el) => observer.observe(el));
 
-      // Active section tracking — highlights nav link of the section in view.
+      // Active section tracking (homepage only)
       const sectionIds = ['services', 'strengths', 'products', 'contact'];
       const navLinks = new Map<string, HTMLAnchorElement>();
       document.querySelectorAll<HTMLAnchorElement>('[data-nav-section]').forEach((a) => {
