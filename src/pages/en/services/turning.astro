@@ -1,0 +1,29 @@
+---
+import { getDict } from '../../../i18n';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import ServicePage from '../../../components/ServicePage.astro';
+import { buildLocalBusinessSchema, buildBreadcrumbSchema, buildServiceSchema, buildFAQSchema } from '../../../lib/schema';
+
+const locale = 'en' as const;
+const t = getDict(locale);
+const sp = t.servicePages.turning;
+
+const SITE = 'https://orodjarstvoruda.com';
+const structuredData = [
+  buildLocalBusinessSchema(locale),
+  buildBreadcrumbSchema([
+    { name: 'Home',     url: `${SITE}/en/` },
+    { name: 'Services', url: `${SITE}/en/services/` },
+    { name: 'Turning',  url: `${SITE}/en/services/turning/` },
+  ]),
+  buildServiceSchema({ key: 'turning', locale, name: t.services.items[1].title, description: sp.lead, offers: sp.what }),
+  buildFAQSchema(sp.faq),
+];
+---
+<BaseLayout locale={locale} routeKey="turning" title={sp.title} description={sp.description} structuredData={structuredData}>
+  <Nav locale={locale} t={t} routeKey="turning" />
+  <main><ServicePage t={t} locale={locale} serviceKey="turning" /></main>
+  <Footer t={t} locale={locale} />
+</BaseLayout>
