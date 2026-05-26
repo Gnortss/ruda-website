@@ -1,0 +1,33 @@
+---
+import { getDict } from '../../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import ServicesIndex from '../../components/ServicesIndex.astro';
+import { buildLocalBusinessSchema, buildBreadcrumbSchema } from '../../lib/schema';
+
+const locale = 'sl' as const;
+const t = getDict(locale);
+
+const SITE = 'https://orodjarstvoruda.com';
+const structuredData = [
+  buildLocalBusinessSchema(locale),
+  buildBreadcrumbSchema([
+    { name: 'Domov',    url: `${SITE}/` },
+    { name: 'Storitve', url: `${SITE}/storitve/` },
+  ]),
+];
+---
+<BaseLayout
+  locale={locale}
+  routeKey="services"
+  title={t.servicesIndex.title}
+  description={t.servicesIndex.description}
+  structuredData={structuredData}
+>
+  <Nav locale={locale} t={t} routeKey="services" />
+  <main>
+    <ServicesIndex t={t} locale={locale} />
+  </main>
+  <Footer t={t} locale={locale} />
+</BaseLayout>
