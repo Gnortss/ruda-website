@@ -1,0 +1,15 @@
+# Old strengths pages → home anchor
+/prednosti       /#strengths        301
+/prednosti/      /#strengths        301
+/de/vorteile     /de/#strengths     301
+/de/vorteile/    /de/#strengths     301
+/en/strengths    /en/#strengths     301
+/en/strengths/   /en/#strengths     301
+
+# Old contact pages → home anchor
+/kontakt         /#contact          301
+/kontakt/        /#contact          301
+/de/kontakt      /de/#contact       301
+/de/kontakt/     /de/#contact       301
+/en/contact      /en/#contact       301
+/en/contact/     /en/#contact       301
