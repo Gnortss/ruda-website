@@ -4,8 +4,8 @@
     "description": "CNC-Fräsen, Drehen und Schleifen hochpräziser Komponenten. Harte Werkstoffe bis 65 HRC und Hartmetall- (WIDIA-) Bearbeitung."
   },
   "nav": {
-    "services": "Leistungen",
-    "strengths": "Stärken",
+    "services": "Dienstleistungen",
+    "strengths": "Unsere Vorteile",
     "products": "Unsere Arbeit",
     "contact": "Kontakt"
   },
@@ -34,7 +34,7 @@
     ]
   },
   "services": {
-    "heading": "Leistungen",
+    "heading": "Dienstleistungen",
     "items": [
       {
         "title": "Fräsen",
@@ -67,24 +67,12 @@
     ]
   },
   "strengths": {
-    "heading": "Stärken",
+    "heading": "Unsere Vorteile",
     "items": [
-      {
-        "title": "Hart- und Hartmetallbearbeitung",
-        "desc": "Werkstücke bis 65 HRC und Hartmetall- (WIDIA-) Bearbeitung — Werkstoffe, die die meisten Werkstätten nicht verarbeiten können"
-      },
-      {
-        "title": "Hochpräzisionsbearbeitung",
-        "desc": "Enge Toleranzen und wiederholbare Genauigkeit für Stanz-, Spritzguss- und Umformkomponenten"
-      },
-      {
-        "title": "Stanz- und Spritzgusswerkzeuge",
-        "desc": "Werkzeuge mit komplexen Geometrien und feinen Oberflächen"
-      },
-      {
-        "title": "Mikroteilefertigung",
-        "desc": "Extrem kleine, filigrane Teile, die spezielles Werkzeug erfordern"
-      }
+      { "title": "Hart- und Hartmetallbearbeitung", "desc": "Herstellung von Produkten mit einer Härte von bis zu 65 HRC und Bearbeitung von Hartmetall (WIDIA)" },
+      { "title": "Hochpräzisionsbearbeitung", "desc": "Herstellung von Produkten, die eine hochpräzise Bearbeitung erfordern" },
+      { "title": "Stanzen, Pressen und Umformen", "desc": "Herstellung von Stanz-, Press- und Umformprodukten" },
+      { "title": "Mikroteilefertigung", "desc": "Herstellung von Mikroprodukten" }
     ]
   },
   "products": {
@@ -100,15 +88,123 @@
       "Gedrehte Welle"
     ]
   },
+  "servicesIndex": {
+    "title": "Dienstleistungen — CNC-Fräsen, Drehen, Schleifen | RUDA Orodjarstvo",
+    "description": "CNC-Fräsen, Drehen und Schleifen hochpräziser Komponenten. Harte Werkstoffe bis 65 HRC, Hartmetall (WIDIA), 5-Achs-Fräsen. Spodnja Idrija, Slowenien.",
+    "heading": "Dienstleistungen",
+    "intro": "Drei Kernleistungen aus einer Hand: CNC-Fräsen, Drehen und Präzisionsschleifen. Spezialität von RUDA Orodjarstvo sind harte Werkstoffe und Hartmetall (WIDIA).",
+    "ctaLabel": "Mehr erfahren"
+  },
+  "servicePages": {
+    "milling": {
+      "slug": "fraesen",
+      "title": "Fräsen (5-Achs CNC, bis 65 HRC) — RUDA Orodjarstvo",
+      "description": "5-Achs-CNC-Fräsen aller Werkstoffe inkl. Hartfräsen bis 65 HRC und Hartmetallbearbeitung (WIDIA). Einzelteile, Prototypen, Klein- und Mittelserien. Slowenien.",
+      "h1": "Fräsen — 5-Achs CNC bis 65 HRC",
+      "lead": "5-Achs-CNC-Fräsen aller Werkstoffe, inkl. gehärteter Werkzeugstähle bis 65 HRC und Hartmetall (WIDIA). Einzelteile, Prototypen und Klein- bis Mittelserien.",
+      "whatHeading": "Was wir fräsen",
+      "what": [
+        "5-Achs-Fräsen aller Werkstoffe",
+        "Hartfräsen bis 65 HRC",
+        "Hartmetallbearbeitung – WIDIA",
+        "Einzelteile und Prototypen",
+        "Klein- und Mittelserienfertigung"
+      ],
+      "materialsHeading": "Werkstoffe und Spezifikationen",
+      "materials": "Alle gängigen Werkzeugstähle (1.2080, 1.2363, 1.2379, 1.2767, K340), Edelstähle, Aluminium, Kupfer, Messing, gehärteter Stahl bis 65 HRC und Hartmetall (WIDIA). Toleranzen nach Projektanforderung.",
+      "applicationsHeading": "Typische Anwendungen",
+      "applications": "Stanzwerkzeuge, Spritzgießformen, Umformwerkzeuge, Druckgussformen, Präzisionsteile für den Maschinenbau, Mikroteile für Medizintechnik und Elektronik, Prototypen.",
+      "faqHeading": "Häufige Fragen",
+      "faq": [
+        { "q": "Bis zu welcher Härte fräsen Sie?", "a": "Bis 65 HRC, inkl. gehärtetem Werkzeugstahl und Hartmetall (WIDIA)." },
+        { "q": "Bieten Sie 5-Achs-Fräsen an?", "a": "Ja — alle Werkstoffe, inkl. harter Materialien und Hartmetall." },
+        { "q": "Fertigen Sie Einzelstücke oder nur Serien?", "a": "Beides — Einzelteile, Prototypen und Klein- bis Mittelserien." },
+        { "q": "Welche Werkstoffe fräsen Sie?", "a": "Alle gängigen Werkzeugstähle, Edelstähle, Aluminium, Hartmetall (WIDIA) und gehärtete Stähle bis 65 HRC." },
+        { "q": "Wo befindet sich Ihr Standort?", "a": "Spodnja Idrija, Slowenien. Wir liefern in die gesamte EU." }
+      ],
+      "ctaLabel": "Angebot anfragen"
+    },
+    "turning": {
+      "slug": "drehen",
+      "title": "Drehen — CNC, alle Werkstoffe — RUDA Orodjarstvo",
+      "description": "CNC-Drehen aller Werkstoffarten. Prototypen und Klein- bis Mittelserien. Hohe Genauigkeit. Spodnja Idrija, Slowenien.",
+      "h1": "Drehen — CNC, alle Werkstoffe",
+      "lead": "CNC-Drehen aller Werkstoffe. Prototypen sowie Klein- und Mittelserien mit hoher Präzision und Wiederholgenauigkeit.",
+      "whatHeading": "Was wir drehen",
+      "what": [
+        "Drehen aller Werkstoffe",
+        "Prototypenfertigung",
+        "Klein- und Mittelserienfertigung"
+      ],
+      "materialsHeading": "Werkstoffe und Spezifikationen",
+      "materials": "Konstruktions- und Edelstähle, Werkzeugstähle, Aluminium, Kupfer, Messing, Kunststoffe. Durchmesser von Mikrobereich bis zu typischen Maschinenbauteilen.",
+      "applicationsHeading": "Typische Anwendungen",
+      "applications": "Präzisionswellen, Bolzen, Buchsen, Stempel, Führungen, Komponenten für Stanz- und Spritzgießwerkzeuge, Prototypen vor der Serienfertigung.",
+      "faqHeading": "Häufige Fragen",
+      "faq": [
+        { "q": "Welche Genauigkeit erreichen Sie beim Drehen?", "a": "Toleranzen nach Projektanforderung, auch im Mikrometerbereich." },
+        { "q": "Fertigen Sie Prototypen?", "a": "Ja — vom Einzelstück bis zu Prototypenserien." },
+        { "q": "Welche Werkstoffe drehen Sie?", "a": "Alle gängigen Konstruktions-, Edelstahl- und Werkzeugstahlsorten, Aluminium, Kupfer, Messing und Kunststoffe." },
+        { "q": "Welche Losgrößen sind üblich?", "a": "Klein- und Mittelserien, oft in Kombination mit Fräsen und Schleifen." }
+      ],
+      "ctaLabel": "Angebot anfragen"
+    },
+    "grinding": {
+      "slug": "schleifen",
+      "title": "Schleifen — Flach- und 4-Achs-Profilschleifen — RUDA Orodjarstvo",
+      "description": "Flachschleifen und 4-Achs-Profilschleifen. Präzisionskomponenten für Stanz- und Umformprozesse. Slowenien.",
+      "h1": "Schleifen — Flach- und 4-Achs-Profilschleifen",
+      "lead": "Flachschleifen und 4-Achs-Profilschleifen für Präzisionskomponenten. Hochwertige Oberflächen und anspruchsvolle Geometrien.",
+      "whatHeading": "Was wir schleifen",
+      "what": [
+        "Flachschleifen",
+        "4-Achs-Profilschleifen"
+      ],
+      "materialsHeading": "Werkstoffe und Spezifikationen",
+      "materials": "Gehärtete Werkzeugstähle, Hartmetall (WIDIA), Edelstähle. Typisch für Stanz- und Umformwerkzeuge mit Anforderungen an Feinoberflächen und enge Toleranzen.",
+      "applicationsHeading": "Typische Anwendungen",
+      "applications": "Stanzplatten, Formeinsätze, Führungen, Profilseiten von Werkzeugen, Endbearbeitung gehärteter Komponenten.",
+      "faqHeading": "Häufige Fragen",
+      "faq": [
+        { "q": "Welche Oberflächenrauheit erreichen Sie?", "a": "Je nach Anforderung — wir fertigen Endbearbeitungen in der jeweils benötigten Qualität." },
+        { "q": "Bieten Sie 4-Achs-Profilschleifen an?", "a": "Ja — 4-Achs-Profilschleifen für anspruchsvolle Geometrien." },
+        { "q": "Welche Werkstoffe schleifen Sie?", "a": "Gehärtete Werkzeugstähle, Hartmetall (WIDIA) und Edelstähle." },
+        { "q": "Kombinieren Sie Schleifen mit anderen Verfahren?", "a": "Ja — meist als Endbearbeitung nach dem Fräsen von Präzisionskomponenten." }
+      ],
+      "ctaLabel": "Angebot anfragen"
+    }
+  },
+  "alt": {
+    "logo": "RUDA Orodjarstvo — Präzisionswerkzeugbau",
+    "services": {
+      "milling": "5-Achs-CNC-Fräsmaschine in der Werkstatt von RUDA Orodjarstvo",
+      "turning": "CNC-Drehmaschine in der Werkstatt von RUDA Orodjarstvo",
+      "grinding": "Schleifmaschine in der Werkstatt von RUDA Orodjarstvo"
+    },
+    "strengths": {
+      "hardCarbide": "Bearbeitetes Werkstück aus gehärtetem Stahl und Hartmetall",
+      "precision": "Präzisionskomponente mit engen Toleranzen",
+      "stamping": "Stanzwerkzeug aus gehärtetem Stahl",
+      "micro": "Mikropräzisionsteil"
+    }
+  },
   "contact": {
     "heading": "Kontakt",
-    "eyebrow": "Kontakt aufnehmen",
+    "eyebrow": "Allgemeine Informationen",
+    "companyHeading": "Unternehmensinformationen",
     "company": "Damjan Rupnik s.p.",
     "address": "Ledine 34, 5281 Spodnja Idrija",
     "country": "Slowenien",
+    "vatLabel": "USt-IdNr.",
+    "vat": "SI 52946398",
+    "ibanLabel": "IBAN",
+    "iban": "SI56 0400 0027 6293 480",
     "mapLabel": "Google Maps — Spodnja Idrija"
   },
   "footer": {
-    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slowenien"
+    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slowenien",
+    "legal": "Damjan Rupnik s.p. · Ledine 34, 5281 Spodnja Idrija · USt-IdNr.: SI 52946398 · IBAN: SI56 0400 0027 6293 480",
+    "servicesLinks": "Dienstleistungen",
+    "backToTop": "Nach oben"
   }
 }
