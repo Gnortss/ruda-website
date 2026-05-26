@@ -1,0 +1,22 @@
+{
+  "name": "ruda-website",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "wrangler pages dev ./dist",
+    "deploy": "astro build && wrangler pages deploy ./dist",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^12.5.0",
+    "astro": "^5.7.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.10.0",
+    "typescript": "^5.6.0"
+  }
+}

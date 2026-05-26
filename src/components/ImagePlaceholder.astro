@@ -1,0 +1,24 @@
+---
+interface Props {
+  label: string;
+  aspect?: string;
+  dark?: boolean;
+  class?: string;
+}
+const { label, aspect = '4/3', dark = false, class: className = '' } = Astro.props;
+---
+<div
+  class={`img-placeholder${dark ? ' dark' : ''} ${className}`.trim()}
+  style={`aspect-ratio: ${aspect};`}
+>
+  <div class="img-placeholder__inner">
+    <div class="img-placeholder__icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.2)" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <path d="m21 15-5-5L5 21" />
+      </svg>
+    </div>
+    <span class="img-placeholder__label">{label}</span>
+  </div>
+</div>

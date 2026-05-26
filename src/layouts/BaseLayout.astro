@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import { locales, localizedPath, type Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const pathname = Astro.url.pathname;
+const canonical = new URL(pathname, Astro.site).toString();
+---
+<!DOCTYPE html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {locales.map((alt) => (
+      <link
+        rel="alternate"
+        hreflang={alt}
+        href={new URL(localizedPath(alt, pathname), Astro.site).toString()}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localizedPath('sl', pathname), Astro.site).toString()}
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/images/logo/ruda_logo.png', Astro.site).toString()} />
+
+    <link rel="icon" type="image/png" href="/images/logo/ruda_logo_transparent.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      // Scroll-reveal: add .visible to .reveal elements when they enter the viewport.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+        .forEach((el) => observer.observe(el));
+
+      // Active section tracking — highlights nav link of the section in view.
+      const sectionIds = ['services', 'strengths', 'products', 'contact'];
+      const navLinks = new Map<string, HTMLAnchorElement>();
+      document.querySelectorAll<HTMLAnchorElement>('[data-nav-section]').forEach((a) => {
+        const id = a.getAttribute('data-nav-section');
+        if (id) navLinks.set(id, a);
+      });
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              navLinks.forEach((a) => a.classList.remove('is-active'));
+              navLinks.get(e.target.id)?.classList.add('is-active');
+            }
+          });
+        },
+        { rootMargin: '-40% 0px -50% 0px' }
+      );
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
+      });
+    </script>
+  </body>
+</html>

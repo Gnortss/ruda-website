@@ -1,0 +1,244 @@
+---
+/**
+ * Fullwidth hero: full-bleed image carousel with dark gradient overlay and white text.
+ */
+import type { Dict } from '../i18n';
+import SmartImage from './SmartImage.astro';
+
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+
+const slides = t.hero.slides.map((label, i) => ({
+  label,
+  src: `/images/hero/slide-${i + 1}.jpg`,
+}));
+
+const facts = [
+  [t.hero.facts.estLabel, t.hero.facts.estValue],
+  [t.hero.facts.hardnessLabel, t.hero.facts.hardnessValue],
+  [t.hero.facts.cncLabel, t.hero.facts.cncValue],
+  [t.hero.facts.specialtyLabel, t.hero.facts.specialtyValue],
+];
+---
+<section id="hero" class="hero">
+  <div class="hero__media">
+    {slides.map((s, i) => (
+      <div class={`hero__slide${i === 0 ? ' is-active' : ''}`} data-slide={i}>
+        <SmartImage
+          src={s.src}
+          alt={s.label}
+          label={s.label}
+          aspect="3/2"
+          dark
+          imgStyle="height: 100%; min-height: calc(100vh - 64px); object-position: center;"
+        />
+      </div>
+    ))}
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">{t.hero.eyebrow}</div>
+    <h1 class="hero__title">
+      {t.hero.titleLine1}<br />
+      {t.hero.titleLine2}
+    </h1>
+    <p class="hero__lead">{t.hero.lead}</p>
+    <div class="hero__ctas">
+      <a class="btn btn-primary-light" href="#services">{t.hero.ctaPrimary}</a>
+      <a class="btn btn-outline-light" href="#contact">{t.hero.ctaSecondary}</a>
+    </div>
+    <div class="hero__facts">
+      {facts.map(([label, value]) => (
+        <div class="hero__fact">
+          <div class="hero__fact-label">{label}</div>
+          <div class="hero__fact-value">{value}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="hero__bar"></div>
+  <div class="hero__dots">
+    {slides.map((_, i) => (
+      <button
+        class={`hero__dot${i === 0 ? ' is-active' : ''}`}
+        data-go={i}
+        aria-label={`Slide ${i + 1}`}
+        type="button"
+      ></button>
+    ))}
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-top: 64px;
+    overflow: hidden;
+    min-height: 100vh;
+  }
+  .hero__media {
+    position: absolute;
+    inset: 64px 0 0 0;
+    overflow: hidden;
+  }
+  .hero__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .hero__slide.is-active { opacity: 1; }
+  .hero__slide :global(.img-placeholder),
+  .hero__slide :global(img) {
+    width: 100%;
+    height: 100%;
+    min-height: calc(100vh - 64px);
+  }
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(28, 28, 28, 0.88) 0%,
+      rgba(28, 28, 28, 0.55) 55%,
+      rgba(28, 28, 28, 0.25) 100%
+    );
+    z-index: 1;
+  }
+  .hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    padding: 80px 56px;
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+  .hero__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-cyan);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 84px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .hero__lead {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 440px;
+    line-height: 1.75;
+    margin-bottom: 40px;
+  }
+  .hero__ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero__facts {
+    display: flex;
+    gap: 32px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+  .hero__fact {
+    min-width: 72px;
+  }
+  .hero__fact-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .hero__fact-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .hero__bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    background: var(--color-cyan);
+    z-index: 3;
+  }
+  .hero__dots {
+    position: absolute;
+    bottom: 28px;
+    right: 32px;
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+  }
+  .hero__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 0;
+    transition: background 0.3s;
+  }
+  .hero__dot.is-active {
+    background: var(--color-cyan);
+  }
+
+  @media (max-width: 768px) {
+    .hero__content { padding: 48px 24px; }
+  }
+  @media (max-width: 480px) {
+    .hero__content { padding: 36px 20px; }
+    .hero__dots { right: 20px; bottom: 20px; }
+  }
+</style>
+
+<script>
+  const slides = Array.from(document.querySelectorAll<HTMLElement>('.hero__slide'));
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.hero__dot'));
+  let current = 0;
+  let timer: number | undefined;
+
+  function go(i: number) {
+    if (i === current) return;
+    slides[current]?.classList.remove('is-active');
+    dots[current]?.classList.remove('is-active');
+    current = (i + slides.length) % slides.length;
+    slides[current]?.classList.add('is-active');
+    dots[current]?.classList.add('is-active');
+  }
+
+  function start() {
+    stop();
+    timer = window.setInterval(() => go(current + 1), 5000);
+  }
+  function stop() {
+    if (timer !== undefined) window.clearInterval(timer);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      go(i);
+      start();
+    });
+  });
+
+  if (slides.length > 1) start();
+</script>

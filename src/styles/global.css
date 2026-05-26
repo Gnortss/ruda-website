@@ -1,0 +1,153 @@
+:root {
+  --color-dark: #1C1C1C;
+  --color-cyan: #49BEC8;
+  --color-cyan-hi: #5dd0da;
+  --color-light: #F7F7F5;
+  --color-muted: #777;
+  --color-line: #ddd;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-display: 'Bebas Neue', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #fff;
+  color: var(--color-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Scroll-reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+.reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  border: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-primary { background: var(--color-dark); color: #fff; }
+.btn-primary:hover { background: var(--color-cyan); }
+
+.btn-outline { background: transparent; color: var(--color-dark); border: 1.5px solid var(--color-dark); font-weight: 500; }
+.btn-outline:hover { border-color: var(--color-cyan); color: var(--color-cyan); }
+
+.btn-primary-light { background: var(--color-cyan); color: var(--color-dark); font-weight: 700; }
+.btn-primary-light:hover { background: var(--color-cyan-hi); }
+
+.btn-outline-light { background: transparent; color: rgba(255,255,255,0.85); border: 1.5px solid rgba(255,255,255,0.35); font-weight: 500; }
+.btn-outline-light:hover { border-color: var(--color-cyan); color: var(--color-cyan); }
+
+/* Section title helper */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 56px;
+}
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 52px);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.section-header .rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-line);
+}
+.section-header.light h2 { color: #fff; }
+.section-header.light .rule { background: rgba(255,255,255,0.1); }
+
+/* Image placeholder (used until real photos are dropped in) */
+.img-placeholder {
+  width: 100%;
+  background: linear-gradient(145deg, #e8e8e4 0%, #d8d8d4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.img-placeholder.dark {
+  background: linear-gradient(145deg, #d0d0cc 0%, #c4c4c0 100%);
+}
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background: repeating-linear-gradient(45deg, #000 0, #000 1px, transparent 1px, transparent 12px);
+}
+.img-placeholder__inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.img-placeholder__icon {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-placeholder__label {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.18);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}

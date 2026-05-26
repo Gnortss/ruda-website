@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "RUDA Orodjarstvo — Präzisionswerkzeugbau",
+    "description": "CNC-Fräsen, Drehen und Schleifen hochpräziser Komponenten. Harte Werkstoffe bis 65 HRC und Hartmetall- (WIDIA-) Bearbeitung."
+  },
+  "nav": {
+    "services": "Leistungen",
+    "strengths": "Stärken",
+    "products": "Unsere Arbeit",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "eyebrow": "Werkzeugbauer seit 2007",
+    "titleLine1": "Präzisions-",
+    "titleLine2": "werkzeugbau",
+    "lead": "CNC-Fräsen, Drehen und Schleifen hochpräziser Komponenten. Harte Werkstoffe bis 65 HRC und Hartmetall- (WIDIA-) Bearbeitung.",
+    "ctaPrimary": "Leistungen ansehen",
+    "ctaSecondary": "Kontakt aufnehmen",
+    "facts": {
+      "estLabel": "Gegr.",
+      "estValue": "2007",
+      "hardnessLabel": "Härte",
+      "hardnessValue": "65 HRC",
+      "cncLabel": "CNC",
+      "cncValue": "5-Achs",
+      "specialtyLabel": "Spezialität",
+      "specialtyValue": "WIDIA"
+    },
+    "slides": [
+      "Umgebung / Werkstattaußenansicht",
+      "CNC-Fräsmaschine",
+      "Werkstattinnenraum",
+      "Maschinen- / Werkstückdetail"
+    ]
+  },
+  "services": {
+    "heading": "Leistungen",
+    "items": [
+      {
+        "title": "Fräsen",
+        "spec": "Max. 65 HRC",
+        "bullets": [
+          "5-Achs-Fräsen aller Werkstoffarten",
+          "Hartfräsen bis 65 HRC",
+          "Hartmetall- / WIDIA-Bearbeitung",
+          "Einzelstücke und Prototypen",
+          "Klein- und Mittelserienfertigung"
+        ]
+      },
+      {
+        "title": "Drehen",
+        "spec": "Hohe Präzision",
+        "bullets": [
+          "Alle Werkstoffarten",
+          "Prototypenfertigung",
+          "Klein- und Mittelserienfertigung"
+        ]
+      },
+      {
+        "title": "Schleifen",
+        "spec": "4-Achs",
+        "bullets": [
+          "Flachschleifen",
+          "4-Achs-Profilschleifen"
+        ]
+      }
+    ]
+  },
+  "strengths": {
+    "heading": "Stärken",
+    "items": [
+      {
+        "title": "Hart- und Hartmetallbearbeitung",
+        "desc": "Werkstücke bis 65 HRC und Hartmetall- (WIDIA-) Bearbeitung — Werkstoffe, die die meisten Werkstätten nicht verarbeiten können"
+      },
+      {
+        "title": "Hochpräzisionsbearbeitung",
+        "desc": "Enge Toleranzen und wiederholbare Genauigkeit für Stanz-, Spritzguss- und Umformkomponenten"
+      },
+      {
+        "title": "Stanz- und Spritzgusswerkzeuge",
+        "desc": "Werkzeuge mit komplexen Geometrien und feinen Oberflächen"
+      },
+      {
+        "title": "Mikroteilefertigung",
+        "desc": "Extrem kleine, filigrane Teile, die spezielles Werkzeug erfordern"
+      }
+    ]
+  },
+  "products": {
+    "heading": "Unsere Arbeit",
+    "items": [
+      "Bearbeitetes Stahlteil",
+      "Hartmetall-Wendeplatte",
+      "Stanzwerkzeug",
+      "Gefräster Prototyp",
+      "Präzisionsform",
+      "Mikroteil",
+      "Umformwerkzeug",
+      "Gedrehte Welle"
+    ]
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "eyebrow": "Kontakt aufnehmen",
+    "company": "Damjan Rupnik s.p.",
+    "address": "Ledine 34, 5281 Spodnja Idrija",
+    "country": "Slowenien",
+    "mapLabel": "Google Maps — Spodnja Idrija"
+  },
+  "footer": {
+    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slowenien"
+  }
+}

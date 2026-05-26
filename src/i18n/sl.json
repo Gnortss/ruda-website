@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "RUDA Orodjarstvo — Precizno orodjarstvo",
+    "description": "CNC frezanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC in obdelava karbida (WIDIA)."
+  },
+  "nav": {
+    "services": "Storitve",
+    "strengths": "Prednosti",
+    "products": "Naše delo",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "eyebrow": "Orodjarji od leta 2007",
+    "titleLine1": "Precizno",
+    "titleLine2": "orodjarstvo",
+    "lead": "CNC frezanje, struženje in brušenje visokoprecizijskih komponent. Trdi materiali do 65 HRC in obdelava karbida (WIDIA).",
+    "ctaPrimary": "Naše storitve",
+    "ctaSecondary": "Kontaktirajte nas",
+    "facts": {
+      "estLabel": "Ustanovljeno",
+      "estValue": "2007",
+      "hardnessLabel": "Trdota",
+      "hardnessValue": "65 HRC",
+      "cncLabel": "CNC",
+      "cncValue": "5-osno",
+      "specialtyLabel": "Specialnost",
+      "specialtyValue": "WIDIA"
+    },
+    "slides": [
+      "Okolica / zunanjost delavnice",
+      "CNC frezalni stroj",
+      "Notranjost delavnice",
+      "Detajl stroja / obdelovanca"
+    ]
+  },
+  "services": {
+    "heading": "Storitve",
+    "items": [
+      {
+        "title": "Frezanje",
+        "spec": "Maks. 65 HRC",
+        "bullets": [
+          "5-osno frezanje vseh vrst materialov",
+          "Trdo frezanje do 65 HRC",
+          "Obdelava karbida / WIDIA",
+          "Posamični kosi in prototipi",
+          "Maloserijska in srednjeserijska proizvodnja"
+        ]
+      },
+      {
+        "title": "Struženje",
+        "spec": "Visoka preciznost",
+        "bullets": [
+          "Vse vrste materialov",
+          "Izdelava prototipov",
+          "Maloserijska in srednjeserijska proizvodnja"
+        ]
+      },
+      {
+        "title": "Brušenje",
+        "spec": "4-osno",
+        "bullets": [
+          "Plansko brušenje",
+          "4-osno profilno brušenje"
+        ]
+      }
+    ]
+  },
+  "strengths": {
+    "heading": "Prednosti",
+    "items": [
+      {
+        "title": "Obdelava trdih materialov in karbida",
+        "desc": "Izdelki do 65 HRC in obdelava karbida (WIDIA) — materiali, ki jih večina delavnic ne more obdelati"
+      },
+      {
+        "title": "Visokoprecizijska obdelava",
+        "desc": "Ozke tolerance in ponovljiva natančnost za štancanje, brizganje in oblikovne komponente"
+      },
+      {
+        "title": "Štancanje in oblikovanje",
+        "desc": "Orodja z zahtevno geometrijo in finimi površinami"
+      },
+      {
+        "title": "Izdelava mikro izdelkov",
+        "desc": "Izjemno majhni, zahtevni deli, ki potrebujejo specializirano orodje"
+      }
+    ]
+  },
+  "products": {
+    "heading": "Naše delo",
+    "items": [
+      "Obdelan jeklen element",
+      "Karbidni vložek",
+      "Štančno orodje",
+      "Frezan prototip",
+      "Precizen kalup",
+      "Mikro del",
+      "Oblikovno orodje",
+      "Struženo gred"
+    ]
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "eyebrow": "Stopite v stik",
+    "company": "Damjan Rupnik s.p.",
+    "address": "Ledine 34, 5281 Spodnja Idrija",
+    "country": "Slovenija",
+    "mapLabel": "Google Maps — Spodnja Idrija"
+  },
+  "footer": {
+    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slovenija"
+  }
+}

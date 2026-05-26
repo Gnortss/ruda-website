@@ -1,0 +1,34 @@
+---
+import type { Dict } from '../i18n';
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+---
+<footer class="site-footer">
+  <img src="/images/logo/ruda_logo_wide.png" alt="RUDA" />
+  <span>{t.footer.copyright}</span>
+</footer>
+
+<style>
+  .site-footer {
+    padding: 32px clamp(20px, 4vw, 56px);
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .site-footer img {
+    height: 22px;
+    opacity: 0.2;
+  }
+  .site-footer span {
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 0.04em;
+  }
+</style>

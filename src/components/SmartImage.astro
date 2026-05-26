@@ -1,0 +1,45 @@
+---
+/**
+ * Renders an <img> if the file exists at build time, otherwise a styled placeholder.
+ * Used for hero / products where real photos haven't been provided yet.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import ImagePlaceholder from './ImagePlaceholder.astro';
+
+interface Props {
+  src: string;          // public-relative path e.g. "/images/hero/slide-1.jpg"
+  alt: string;
+  label: string;        // shown on placeholder when src is missing
+  aspect?: string;
+  dark?: boolean;
+  class?: string;
+  imgClass?: string;
+  imgStyle?: string;
+}
+
+const {
+  src,
+  alt,
+  label,
+  aspect = '4/3',
+  dark = false,
+  class: className = '',
+  imgClass = '',
+  imgStyle = '',
+} = Astro.props;
+
+const publicPath = path.join(process.cwd(), 'public', src.replace(/^\//, ''));
+const exists = fs.existsSync(publicPath);
+---
+{exists ? (
+  <img
+    src={src}
+    alt={alt}
+    class={imgClass}
+    style={`aspect-ratio: ${aspect}; object-fit: cover; width: 100%; ${imgStyle}`}
+    loading="lazy"
+  />
+) : (
+  <ImagePlaceholder label={label} aspect={aspect} dark={dark} class={className} />
+)}

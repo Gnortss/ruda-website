@@ -1,0 +1,218 @@
+---
+import { type Locale, type Dict, locales, localizedPath, localeLabel } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  t: Dict;
+}
+const { locale, t } = Astro.props;
+const pathname = Astro.url.pathname;
+
+const links = [
+  { id: 'services', label: t.nav.services },
+  { id: 'strengths', label: t.nav.strengths },
+  { id: 'products', label: t.nav.products },
+  { id: 'contact', label: t.nav.contact },
+];
+---
+<nav class="site-nav">
+  <div class="site-nav__inner">
+    <a href={locale === 'sl' ? '/' : `/${locale}/`} class="site-nav__logo" aria-label="RUDA Orodjarstvo">
+      <img src="/images/logo/ruda_logo_transparent.png" alt="RUDA Orodjarstvo" />
+    </a>
+
+    <div class="site-nav__desktop">
+      {links.map((l) => (
+        <a href={`#${l.id}`} data-nav-section={l.id} class="site-nav__link">{l.label}</a>
+      ))}
+      <span class="site-nav__divider" aria-hidden="true"></span>
+      <div class="site-nav__langs">
+        {locales.map((lc) => (
+          <a
+            href={localizedPath(lc, pathname)}
+            class={`site-nav__lang${lc === locale ? ' is-active' : ''}`}
+            hreflang={lc}
+          >{localeLabel(lc)}</a>
+        ))}
+      </div>
+    </div>
+
+    <button class="site-nav__burger" aria-label="Menu" aria-expanded="false" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="site-nav__mobile" hidden>
+    {links.map((l) => (
+      <a href={`#${l.id}`} class="site-nav__mobile-link" data-nav-section={l.id}>{l.label}</a>
+    ))}
+    <div class="site-nav__mobile-langs">
+      {locales.map((lc) => (
+        <a
+          href={localizedPath(lc, pathname)}
+          class={`site-nav__lang${lc === locale ? ' is-active' : ''}`}
+        >{localeLabel(lc)}</a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+  .site-nav.is-scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom-color: #eee;
+  }
+  .site-nav__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 64px;
+  }
+  .site-nav__logo img {
+    height: 36px;
+    cursor: pointer;
+  }
+  .site-nav__desktop {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+  .site-nav__link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .site-nav__link:hover,
+  .site-nav__link.is-active {
+    color: var(--color-cyan);
+  }
+  .site-nav__divider {
+    width: 1px;
+    height: 20px;
+    background: #e0e0e0;
+  }
+  .site-nav__langs {
+    display: flex;
+    gap: 14px;
+  }
+  .site-nav__lang {
+    font-size: 10px;
+    font-weight: 700;
+    color: #ccc;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .site-nav__lang:hover,
+  .site-nav__lang.is-active {
+    color: var(--color-cyan);
+  }
+  .site-nav__burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .site-nav__burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-dark);
+    margin-bottom: 5px;
+    transition: transform 0.3s, opacity 0.2s;
+  }
+  .site-nav__burger span:last-child {
+    margin-bottom: 0;
+  }
+  .site-nav__burger[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translateY(5px);
+  }
+  .site-nav__burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .site-nav__burger[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-5px);
+  }
+  .site-nav__mobile {
+    background: #fff;
+    border-top: 1px solid #eee;
+    padding: 12px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .site-nav__mobile[hidden] {
+    display: none;
+  }
+  .site-nav__mobile-link {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 0;
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .site-nav__mobile-link.is-active {
+    color: var(--color-cyan);
+  }
+  .site-nav__mobile-langs {
+    display: flex;
+    gap: 16px;
+    padding-top: 12px;
+  }
+  .site-nav__mobile-langs .site-nav__lang {
+    font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .site-nav__desktop { display: none; }
+    .site-nav__burger { display: block; }
+  }
+</style>
+
+<script>
+  const nav = document.querySelector('.site-nav') as HTMLElement | null;
+  const burger = document.querySelector('.site-nav__burger') as HTMLButtonElement | null;
+  const mobile = document.querySelector('.site-nav__mobile') as HTMLElement | null;
+
+  if (nav) {
+    const onScroll = () => {
+      nav.classList.toggle('is-scrolled', window.scrollY > 20);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  if (burger && mobile) {
+    const closeMenu = () => {
+      burger.setAttribute('aria-expanded', 'false');
+      mobile.hidden = true;
+    };
+    burger.addEventListener('click', () => {
+      const open = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!open));
+      mobile.hidden = open;
+    });
+    mobile.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+  }
+</script>

@@ -1,0 +1,144 @@
+---
+/**
+ * Services — alternating rows (image / text), 3 services.
+ */
+import type { Dict } from '../i18n';
+interface Props {
+  t: Dict;
+}
+const { t } = Astro.props;
+
+const SERVICE_IMAGES = [
+  '/images/services/milling.png',
+  '/images/services/turning.png',
+  '/images/services/grinding.png',
+];
+
+const services = t.services.items.map((s, i) => ({
+  ...s,
+  img: SERVICE_IMAGES[i],
+}));
+---
+<section id="services" class="services">
+  <div class="services__wrap">
+    <div class="reveal section-header">
+      <h2>{t.services.heading.toUpperCase()}</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="services__list">
+      {services.map((s, i) => (
+        <div class={`reveal services__row${i % 2 === 1 ? ' is-reverse' : ''}`} style={`transition-delay: ${i * 0.1}s`}>
+          <div class="services__img-wrap">
+            <div class="services__img-box">
+              <img src={s.img} alt={s.title} loading="lazy" />
+            </div>
+            <div class="services__accent"></div>
+          </div>
+          <div class="services__text">
+            <div class="services__spec">{s.spec}</div>
+            <h3 class="services__title">{s.title}</h3>
+            <ul class="services__bullets">
+              {s.bullets.map((b) => (
+                <li><span class="services__dash">—</span>{b}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: clamp(60px, 8vw, 88px) clamp(20px, 4vw, 56px);
+    background: var(--color-light);
+  }
+  .services__wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .services__list {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .services__row {
+    display: flex;
+    gap: 48px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .services__row.is-reverse {
+    flex-direction: row-reverse;
+  }
+  .services__img-wrap {
+    flex: 0 0 45%;
+    position: relative;
+  }
+  .services__img-box {
+    background: #fff;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .services__img-box img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
+  }
+  .services__accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    height: 40%;
+    background: var(--color-cyan);
+  }
+  .services__text { flex: 1; }
+  .services__spec {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-cyan);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .services__title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    color: var(--color-dark);
+    margin-bottom: 24px;
+  }
+  .services__bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .services__bullets li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .services__dash {
+    color: var(--color-cyan);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .services__row,
+    .services__row.is-reverse {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .services__img-wrap { flex: unset; width: 100%; }
+  }
+</style>

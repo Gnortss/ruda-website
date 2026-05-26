@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "title": "RUDA Orodjarstvo — Precision Toolmaking",
+    "description": "CNC milling, turning and grinding of high-precision components. Hard materials up to 65 HRC and carbide (WIDIA) machining."
+  },
+  "nav": {
+    "services": "Services",
+    "strengths": "Strengths",
+    "products": "Our work",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Toolmakers since 2007",
+    "titleLine1": "Precision",
+    "titleLine2": "Toolmaking",
+    "lead": "CNC milling, turning and grinding of high-precision components. Hard materials up to 65 HRC and carbide (WIDIA) machining.",
+    "ctaPrimary": "View Services",
+    "ctaSecondary": "Contact Us",
+    "facts": {
+      "estLabel": "Est.",
+      "estValue": "2007",
+      "hardnessLabel": "Hardness",
+      "hardnessValue": "65 HRC",
+      "cncLabel": "CNC",
+      "cncValue": "5-Axis",
+      "specialtyLabel": "Specialty",
+      "specialtyValue": "WIDIA"
+    },
+    "slides": [
+      "Countryside / workshop exterior",
+      "CNC milling machine",
+      "Workshop interior",
+      "Machine detail / part close-up"
+    ]
+  },
+  "services": {
+    "heading": "Services",
+    "items": [
+      {
+        "title": "Milling",
+        "spec": "Max 65 HRC",
+        "bullets": [
+          "5-axis milling of all material types",
+          "Hard milling up to 65 HRC",
+          "Carbide / WIDIA machining",
+          "One-offs and prototypes",
+          "Small to medium batch production"
+        ]
+      },
+      {
+        "title": "Turning",
+        "spec": "High precision",
+        "bullets": [
+          "All types of materials",
+          "Prototype manufacture",
+          "Small to medium batch production"
+        ]
+      },
+      {
+        "title": "Grinding",
+        "spec": "4-axis",
+        "bullets": [
+          "Surface grinding",
+          "4-axis profile grinding"
+        ]
+      }
+    ]
+  },
+  "strengths": {
+    "heading": "Strengths",
+    "items": [
+      {
+        "title": "Hard & Carbide Machining",
+        "desc": "Products up to 65 HRC and carbide (WIDIA) machining — materials most shops cannot process"
+      },
+      {
+        "title": "High-Precision Machining",
+        "desc": "Tight tolerances and repeatable accuracy for stamping, moulding and forming components"
+      },
+      {
+        "title": "Stamping & Moulding",
+        "desc": "Tools with complex geometries and fine surface finishes"
+      },
+      {
+        "title": "Micro-Product Manufacture",
+        "desc": "Extremely small, intricate parts requiring specialist tooling"
+      }
+    ]
+  },
+  "products": {
+    "heading": "Our Work",
+    "items": [
+      "Machined steel component",
+      "Carbide insert",
+      "Stamping die",
+      "Milled prototype",
+      "Precision mould",
+      "Micro-part",
+      "Forming tool",
+      "Turned shaft"
+    ]
+  },
+  "contact": {
+    "heading": "Contact",
+    "eyebrow": "Get in touch",
+    "company": "Damjan Rupnik s.p.",
+    "address": "Ledine 34, 5281 Spodnja Idrija",
+    "country": "Slovenia",
+    "mapLabel": "Google Maps embed — Spodnja Idrija"
+  },
+  "footer": {
+    "copyright": "© 2007–2026, Damjan Rupnik s.p., Spodnja Idrija, Slovenia"
+  }
+}
