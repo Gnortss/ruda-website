@@ -1,23 +1,21 @@
 ---
-/**
- * Strengths — overlay layout. 2×2 grid of full-bleed images with gradient overlay and text at bottom.
- */
 import type { Dict } from '../i18n';
-interface Props {
-  t: Dict;
-}
+import { Image } from 'astro:assets';
+import hardCarbide from '../assets/strengths/hard-carbide.png';
+import precision from '../assets/strengths/precision.png';
+import stampingMoulding from '../assets/strengths/stamping-moulding.png';
+import micro from '../assets/strengths/micro.png';
+
+interface Props { t: Dict; }
 const { t } = Astro.props;
 
-const STRENGTH_IMAGES = [
-  '/images/strengths/hard-carbide.png',
-  '/images/strengths/precision.png',
-  '/images/strengths/stamping-moulding.png',
-  '/images/strengths/micro.png',
-];
+const STRENGTH_IMAGES = [hardCarbide, precision, stampingMoulding, micro];
+const ALT_KEYS: Array<'hardCarbide' | 'precision' | 'stamping' | 'micro'> = ['hardCarbide', 'precision', 'stamping', 'micro'];
 
 const strengths = t.strengths.items.map((s, i) => ({
   ...s,
   img: STRENGTH_IMAGES[i],
+  alt: t.alt.strengths[ALT_KEYS[i]],
 }));
 ---
 <section id="strengths" class="strengths">
@@ -30,7 +28,7 @@ const strengths = t.strengths.items.map((s, i) => ({
     <div class="strengths__grid">
       {strengths.map((s, i) => (
         <div class="reveal-scale strengths__card" style={`transition-delay: ${i * 0.1}s`}>
-          <img src={s.img} alt={s.title} loading="lazy" />
+          <Image src={s.img} alt={s.alt} widths={[400, 600, 800]} sizes="(max-width: 640px) 100vw, 50vw" loading="lazy" />
           <div class="strengths__shade"></div>
           <div class="strengths__caption">
             <div class="strengths__bar"></div>
@@ -44,67 +42,15 @@ const strengths = t.strengths.items.map((s, i) => ({
 </section>
 
 <style>
-  .strengths {
-    padding: clamp(60px, 8vw, 88px) clamp(20px, 4vw, 56px);
-    background: var(--color-dark);
-    color: #fff;
-  }
-  .strengths__wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .strengths__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
-  }
-  .strengths__card {
-    position: relative;
-    overflow: hidden;
-  }
-  .strengths__card img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-  }
-  .strengths__shade {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(20, 20, 20, 0.92) 0%,
-      rgba(20, 20, 20, 0.3) 50%,
-      transparent 100%
-    );
-  }
-  .strengths__caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: clamp(20px, 3vw, 32px);
-  }
-  .strengths__bar {
-    width: 24px;
-    height: 2px;
-    background: var(--color-cyan);
-    margin-bottom: 14px;
-  }
-  .strengths__caption h4 {
-    font-size: 17px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
-    line-height: 1.3;
-  }
-  .strengths__caption p {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.6;
-  }
-
-  @media (max-width: 640px) {
-    .strengths__grid { grid-template-columns: 1fr; }
-  }
+  .strengths { padding: clamp(60px, 8vw, 88px) clamp(20px, 4vw, 56px); background: var(--color-dark); color: #fff; }
+  .strengths__wrap { max-width: 1200px; margin: 0 auto; }
+  .strengths__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+  .strengths__card { position: relative; overflow: hidden; }
+  .strengths__card :global(img) { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+  .strengths__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,20,20,0.92) 0%, rgba(20,20,20,0.3) 50%, transparent 100%); }
+  .strengths__caption { position: absolute; bottom: 0; left: 0; right: 0; padding: clamp(20px, 3vw, 32px); }
+  .strengths__bar { width: 24px; height: 2px; background: var(--color-cyan); margin-bottom: 14px; }
+  .strengths__caption h4 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+  .strengths__caption p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  @media (max-width: 640px) { .strengths__grid { grid-template-columns: 1fr; } }
 </style>
