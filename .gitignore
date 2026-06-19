@@ -8,3 +8,6 @@ dist
 !.env.example
 *.log
 .vscode
+
+# Source video (encoded outputs live in public/videos/)
+/RUDA_2_out_720.mp4

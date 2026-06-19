@@ -1,16 +1,14 @@
 # Products / "Our work" gallery
 
-Drop 8 product photographs here. Recommended size: 1200×1200px (square), optimized JPG/WebP under ~250 KB each.
+Product photographs for the homepage gallery. Recommended size: 1200×1200px (square), optimized JPG/WebP under ~250 KB each.
 
-Expected filenames (referenced by the site):
+The gallery shows 6 tiles, referenced by filename in `src/components/Products.astro`:
 
-1. `product-1.jpg` — Machined steel component (featured, larger tile)
-2. `product-2.jpg` — Carbide insert
-3. `product-3.jpg` — Stamping die
-4. `product-4.jpg` — Milled prototype
-5. `product-5.jpg` — Precision mould
-6. `product-6.jpg` — Micro-part
-7. `product-7.jpg` — Forming tool
-8. `product-8.jpg` — Turned shaft
+1. `OR-1.jpg` — featured (larger tile), shows all products together
+2. `OR-2.jpg`
+3. `OR-8.jpg`
+4. `OR-12.jpg`
+5. `OR-14.jpg`
+6. `OR-15.jpg`
 
-Until images are added, the site renders a styled placeholder for each tile.
+To change which photos appear, edit the `files` array in `Products.astro`.

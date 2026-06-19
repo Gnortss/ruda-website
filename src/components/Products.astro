@@ -7,9 +7,10 @@ interface Props {
 }
 const { t } = Astro.props;
 
-const items = t.products.items.map((label, i) => ({
-  label,
-  src: `/images/products/product-${i + 1}.jpg`,
+const files = ['OR-1.jpg', 'OR-2.jpg', 'OR-8.jpg', 'OR-12.jpg', 'OR-14.jpg', 'OR-15.jpg', 'OR-3.jpg', 'OR-4.jpg', 'OR-5.jpg'];
+const items = files.map((file) => ({
+  label: t.products.imageAlt,
+  src: `/images/products/${file}`,
 }));
 ---
 <section id="products" class="products">
@@ -31,6 +32,11 @@ const items = t.products.items.map((label, i) => ({
         </div>
       ))}
     </div>
+  </div>
+
+  <div class="lightbox" id="product-lightbox" hidden>
+    <button class="lightbox__close" type="button" aria-label={t.products.closeLabel}>&times;</button>
+    <img class="lightbox__img" src="" alt="" />
   </div>
 </section>
 
@@ -56,6 +62,41 @@ const items = t.products.items.map((label, i) => ({
     width: 100%;
     height: 100%;
   }
+  .products__cell :global(img) {
+    cursor: pointer;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 20, 20, 0.92);
+  }
+  .lightbox[hidden] {
+    display: none;
+  }
+  .lightbox__img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+  }
+  .lightbox__close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    font-size: 32px;
+    line-height: 1;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
 
   @media (max-width: 900px) {
     .products__grid { grid-template-columns: repeat(2, 1fr); }
@@ -65,3 +106,38 @@ const items = t.products.items.map((label, i) => ({
     .products__grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
+
+<script>
+  const lightbox = document.getElementById('product-lightbox');
+  const lightboxImg = lightbox?.querySelector<HTMLImageElement>('.lightbox__img');
+  const closeBtn = lightbox?.querySelector<HTMLButtonElement>('.lightbox__close');
+  const cellImages = document.querySelectorAll<HTMLImageElement>('.products__cell img');
+
+  // Move the overlay to <body> so its position:fixed can never be trapped by an
+  // ancestor's transform/overflow/stacking context.
+  if (lightbox) document.body.appendChild(lightbox);
+
+  function open(img: HTMLImageElement) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    if (!lightbox || !lightboxImg) return;
+    lightbox.hidden = true;
+    lightboxImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  cellImages.forEach((img) => img.addEventListener('click', () => open(img)));
+  closeBtn?.addEventListener('click', close);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && !lightbox.hidden) close();
+  });
+</script>

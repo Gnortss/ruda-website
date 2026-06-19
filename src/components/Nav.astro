@@ -18,9 +18,9 @@ const servicesHref = routes.services[locale];
 
 const links = [
   { href: servicesHref, label: t.nav.services, section: 'services' },
-  { hash: '#strengths', label: t.nav.strengths, section: 'strengths' },
-  { hash: '#products', label: t.nav.products, section: 'products' },
-  { hash: '#contact', label: t.nav.contact, section: 'contact' },
+  { hash: `${homeHref}#strengths`, label: t.nav.strengths, section: 'strengths' },
+  { hash: `${homeHref}#products`, label: t.nav.products, section: 'products' },
+  { hash: `${homeHref}#contact`, label: t.nav.contact, section: 'contact' },
 ];
 ---
 <nav class="site-nav">

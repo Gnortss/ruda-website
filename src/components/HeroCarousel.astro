@@ -1,11 +1,8 @@
 ---
 /**
- * Video hero (desktop) with image-carousel fallback (mobile).
- * Desktop (>=769px): autoplay muted looping video behind the dark gradient
- * overlay and white text. Mobile (<=768px): the original image carousel — the
- * ~5.4MB video is never downloaded there. The carousel-only alternate is
- * preserved in HeroCarousel.astro. The video is a pure drop-in replacement for
- * the slide media; overlay, content and bar are unchanged.
+ * Image-carousel hero (alternate). Full-bleed slide fader with dark gradient
+ * overlay and white text. Superseded by the video Hero.astro — kept intact so
+ * we can swap back by changing the import in HomePage.astro. Uses t.hero.slides.
  */
 import type { Dict } from '../i18n';
 import SmartImage from './SmartImage.astro';
@@ -29,43 +26,18 @@ const facts = [
 ---
 <section id="hero" class="hero">
   <div class="hero__media">
-    <video
-      class="hero__video"
-      poster="/videos/hero-poster.jpg"
-      muted
-      loop
-      playsinline
-      preload="none"
-    >
-      <source src="/videos/hero.webm" type="video/webm" />
-      <source src="/videos/hero.mp4" type="video/mp4" />
-    </video>
-
-    <div class="hero__carousel">
-      {slides.map((s, i) => (
-        <div class={`hero__slide${i === 0 ? ' is-active' : ''}`} data-slide={i}>
-          <SmartImage
-            src={s.src}
-            alt={s.label}
-            label={s.label}
-            aspect="3/2"
-            dark
-            imgStyle="height: 100%; min-height: calc(100vh - 64px); object-position: center;"
-          />
-        </div>
-      ))}
-      <div class="hero__dots">
-        {slides.map((_, i) => (
-          <button
-            class={`hero__dot${i === 0 ? ' is-active' : ''}`}
-            data-go={i}
-            aria-label={`Slide ${i + 1}`}
-            type="button"
-          ></button>
-        ))}
+    {slides.map((s, i) => (
+      <div class={`hero__slide${i === 0 ? ' is-active' : ''}`} data-slide={i}>
+        <SmartImage
+          src={s.src}
+          alt={s.label}
+          label={s.label}
+          aspect="3/2"
+          dark
+          imgStyle="height: 100%; min-height: calc(100vh - 64px); object-position: center;"
+        />
       </div>
-    </div>
-
+    ))}
     <div class="hero__overlay"></div>
   </div>
 
@@ -91,6 +63,16 @@ const facts = [
   </div>
 
   <div class="hero__bar"></div>
+  <div class="hero__dots">
+    {slides.map((_, i) => (
+      <button
+        class={`hero__dot${i === 0 ? ' is-active' : ''}`}
+        data-go={i}
+        aria-label={`Slide ${i + 1}`}
+        type="button"
+      ></button>
+    ))}
+  </div>
 </section>
 
 <style>
@@ -105,16 +87,6 @@ const facts = [
     inset: 64px 0 0 0;
     overflow: hidden;
   }
-  .hero__video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    min-height: calc(100vh - 64px);
-    object-fit: cover;
-    object-position: center;
-  }
-  .hero__carousel { display: none; }
   .hero__slide {
     position: absolute;
     inset: 0;
@@ -232,8 +204,6 @@ const facts = [
   }
 
   @media (max-width: 768px) {
-    .hero__video { display: none; }
-    .hero__carousel { display: block; }
     .hero__content { padding: 48px 24px; }
   }
   @media (max-width: 480px) {
@@ -243,16 +213,6 @@ const facts = [
 </style>
 
 <script>
-  const desktop = window.matchMedia('(min-width: 769px)');
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  // Desktop: play the video (no autoplay attribute, so mobile never loads it).
-  const video = document.querySelector<HTMLVideoElement>('.hero__video');
-  if (video && desktop.matches && !reduce.matches) {
-    video.play().catch(() => {});
-  }
-
-  // Mobile: the image carousel.
   const slides = Array.from(document.querySelectorAll<HTMLElement>('.hero__slide'));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.hero__dot'));
   let current = 0;
@@ -282,5 +242,5 @@ const facts = [
     });
   });
 
-  if (!desktop.matches && slides.length > 1) start();
+  if (slides.length > 1) start();
 </script>

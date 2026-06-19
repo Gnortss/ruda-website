@@ -75,16 +75,8 @@
   },
   "products": {
     "heading": "Our work",
-    "items": [
-      "Machined steel component",
-      "Carbide insert",
-      "Stamping die",
-      "Milled prototype",
-      "Precision mould",
-      "Micro-part",
-      "Forming tool",
-      "Turned shaft"
-    ]
+    "imageAlt": "RUDA precision tooling",
+    "closeLabel": "Close"
   },
   "servicesIndex": {
     "title": "Services — CNC Milling, Turning, Grinding | RUDA Orodjarstvo",

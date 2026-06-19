@@ -77,16 +77,8 @@
   },
   "products": {
     "heading": "Naše delo",
-    "items": [
-      "Obdelan jeklen element",
-      "Karbidni vložek",
-      "Štančno orodje",
-      "Rezkan prototip",
-      "Precizen kalup",
-      "Mikro del",
-      "Oblikovno orodje",
-      "Struženo gred"
-    ]
+    "imageAlt": "RUDA precizno orodjarstvo",
+    "closeLabel": "Zapri"
   },
   "servicesIndex": {
     "title": "Storitve — CNC rezkanje, struženje, brušenje | RUDA Orodjarstvo",

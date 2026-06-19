@@ -77,16 +77,8 @@
   },
   "products": {
     "heading": "Unsere Arbeit",
-    "items": [
-      "Bearbeitetes Stahlteil",
-      "Hartmetall-Wendeplatte",
-      "Stanzwerkzeug",
-      "Gefräster Prototyp",
-      "Präzisionsform",
-      "Mikroteil",
-      "Umformwerkzeug",
-      "Gedrehte Welle"
-    ]
+    "imageAlt": "RUDA Präzisionswerkzeugbau",
+    "closeLabel": "Schließen"
   },
   "servicesIndex": {
     "title": "Dienstleistungen — CNC-Fräsen, Drehen, Schleifen | RUDA Orodjarstvo",

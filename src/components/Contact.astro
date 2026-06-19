@@ -1,6 +1,5 @@
 ---
 import type { Dict } from '../i18n';
-import ImagePlaceholder from './ImagePlaceholder.astro';
 
 interface Props { t: Dict; }
 const { t } = Astro.props;
@@ -30,11 +29,13 @@ const { t } = Astro.props;
       </div>
 
       <div class="reveal-right contact__map">
-        <!--
-          Replace this placeholder with a real Google Maps embed:
-          <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        -->
-        <ImagePlaceholder label={t.contact.mapLabel} aspect="4/3" />
+        <iframe
+          title={t.contact.mapLabel}
+          src="https://maps.google.com/maps?q=Ledine%2034%2C%205281%20Spodnja%20Idrija%2C%20Slovenia&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   </div>
@@ -52,5 +53,6 @@ const { t } = Astro.props;
   .contact__addr { font-size: 14px; color: #888; line-height: 1.8; }
   .contact__addr strong { color: var(--color-dark); }
   .contact__legal { font-family: var(--font-mono); font-size: 12px; }
+  .contact__map iframe { width: 100%; aspect-ratio: 4 / 3; border: 0; display: block; }
   @media (max-width: 768px) { .contact__grid { grid-template-columns: 1fr; gap: 32px; } }
 </style>
