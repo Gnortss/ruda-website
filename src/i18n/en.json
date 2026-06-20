@@ -1,19 +1,19 @@
 {
   "meta": {
     "title": "RUDA Orodjarstvo — Precision Toolmaking",
-    "description": "CNC milling, turning and grinding of high-precision components. Hard materials up to 65 HRC and carbide (WIDIA) machining."
+    "description": "CNC milling, turning, and grinding of high-precision components. Machining of hard materials up to 65 HRC and solid carbide (WIDIA)."
   },
   "nav": {
     "services": "Services",
-    "strengths": "Our strengths",
-    "products": "Our work",
+    "strengths": "Our Strengths",
+    "products": "Our Work",
     "contact": "Contact"
   },
   "hero": {
-    "eyebrow": "Toolmakers since 2007",
+    "eyebrow": "Toolmakers Since 2007",
     "titleLine1": "Precision",
     "titleLine2": "Toolmaking",
-    "lead": "CNC milling, turning and grinding of high-precision components. Hard materials up to 65 HRC and carbide (WIDIA) machining.",
+    "lead": "CNC milling, turning, and grinding of high-precision components. Machining of hard materials up to 65 HRC and solid carbide (WIDIA).",
     "ctaPrimary": "View Services",
     "ctaSecondary": "Contact Us",
     "facts": {
@@ -27,10 +27,10 @@
       "specialtyValue": "WIDIA"
     },
     "slides": [
-      "Countryside / workshop exterior",
+      "Workshop exterior / surroundings",
       "CNC milling machine",
       "Workshop interior",
-      "Machine detail / part close-up"
+      "Machine detail / workpiece close-up"
     ]
   },
   "services": {
@@ -38,12 +38,13 @@
     "items": [
       {
         "title": "Milling",
-        "spec": "Max 65 HRC",
+        "spec": "Max. 65 HRC",
         "bullets": [
           "5-axis milling of all types of materials",
-          "Hard milling up to hardness 65 HRC",
-          "Milling of carbide solids – WIDIA",
-          "Production of one-offs, prototypes and small to medium batches"
+          "Hard milling up to 65 HRC",
+          "Milling of solid carbide – WIDIA",
+          "Single parts and prototypes",
+          "Small to medium batch production"
         ]
       },
       {
@@ -51,7 +52,8 @@
         "spec": "High precision",
         "bullets": [
           "Turning of all types of materials",
-          "Prototyping and small to medium batches"
+          "Prototyping",
+          "Small to medium batch production"
         ]
       },
       {
@@ -65,51 +67,51 @@
     ]
   },
   "strengths": {
-    "heading": "Our strengths",
+    "heading": "Our Strengths",
     "items": [
-      { "title": "Hardness & Carbide Machining", "desc": "Manufacture of products up to 65 HRC hardness and carbide machining (WIDIA)" },
-      { "title": "High Precision Machining", "desc": "Manufacture of products where high precision machining is required" },
-      { "title": "Material Processing Products", "desc": "Manufacture of stamping, moulding and forming products" },
-      { "title": "Micro-products", "desc": "Manufacture of micro-products" }
+      { "title": "Hard Material & Carbide Machining", "desc": "Machining of materials up to 65 HRC and solid carbide (WIDIA)" },
+      { "title": "High-Precision Machining", "desc": "Manufacturing of components that require the highest machining precision" },
+      { "title": "Stamping and Forming Tools", "desc": "Manufacture of tools for stamping, injection moulding, and forming" },
+      { "title": "Micro-components", "desc": "Manufacturing of micro-components with the highest precision" }
     ]
   },
   "products": {
-    "heading": "Our work",
-    "imageAlt": "RUDA precision tooling",
+    "heading": "Our Work",
+    "imageAlt": "RUDA precision toolmaking",
     "closeLabel": "Close"
   },
   "servicesIndex": {
     "title": "Services — CNC Milling, Turning, Grinding | RUDA Orodjarstvo",
-    "description": "CNC milling, turning and grinding of high-precision components. Hard materials up to 65 HRC, carbide (WIDIA), 5-axis milling. Spodnja Idrija, Slovenia.",
+    "description": "CNC milling, turning, and grinding of high-precision components. Hard materials up to 65 HRC, solid carbide (WIDIA), 5-axis milling. Spodnja Idrija, Slovenia.",
     "heading": "Services",
-    "intro": "Three core services from one workshop: CNC milling, turning, and precision grinding. RUDA Orodjarstvo specialises in hard materials and carbide (WIDIA).",
+    "intro": "Three core services from one workshop: CNC milling, turning, and precision grinding. RUDA Orodjarstvo specialises in hard materials and solid carbide (WIDIA).",
     "ctaLabel": "Learn more"
   },
   "servicePages": {
     "milling": {
       "slug": "milling",
       "title": "Milling (5-axis CNC, up to 65 HRC) — RUDA Orodjarstvo",
-      "description": "5-axis CNC milling of all materials, including hard steels up to 65 HRC and carbide (WIDIA). One-offs, prototypes, small to medium batches. Slovenia.",
+      "description": "5-axis CNC milling of all materials, including hard steels up to 65 HRC and solid carbide (WIDIA). Single parts, prototypes, and small to medium batches. Slovenia.",
       "h1": "Milling — 5-axis CNC up to 65 HRC",
-      "lead": "5-axis CNC milling of all materials, including hardened tool steels up to 65 HRC and carbide (WIDIA). One-offs, prototypes, and small to medium batch production.",
+      "lead": "5-axis CNC milling of all materials, including hardened tool steels up to 65 HRC and solid carbide (WIDIA). Single parts, prototypes, and small to medium batch production.",
       "whatHeading": "What we mill",
       "what": [
         "5-axis milling of all types of materials",
-        "Hard milling up to hardness 65 HRC",
-        "Milling of carbide solids – WIDIA",
-        "One-offs and prototypes",
+        "Hard milling up to 65 HRC",
+        "Milling of solid carbide – WIDIA",
+        "Single parts and prototypes",
         "Small to medium batch production"
       ],
       "materialsHeading": "Materials and specifications",
-      "materials": "All standard tool steels (1.2080, 1.2363, 1.2379, 1.2767, K340), stainless steels, aluminium, copper, brass, hardened steel up to 65 HRC, and carbide (WIDIA). Tolerances per project requirements.",
+      "materials": "All standard tool steels (1.2080, 1.2363, 1.2379, 1.2767, K340), stainless steels, aluminium, copper, brass, hardened steel up to 65 HRC, and solid carbide (WIDIA). Tolerances are strictly matched to project requirements.",
       "applicationsHeading": "Typical applications",
-      "applications": "Stamping dies, injection moulds, forming tools, die-casting moulds, precision machine-building parts, micro-parts for medical and electronics, prototypes.",
+      "applications": "Stamping tools, injection moulds, forming tools, die-casting moulds, precision machine-building parts, micro-components for medicine and electronics, prototypes.",
       "faqHeading": "Frequently asked questions",
       "faq": [
-        { "q": "What is the maximum hardness you can mill?", "a": "Up to 65 HRC, including hardened tool steels and carbide (WIDIA)." },
-        { "q": "Do you offer 5-axis milling?", "a": "Yes — all materials, including hard materials and carbide." },
-        { "q": "Can you produce single prototypes or only batches?", "a": "Both — one-offs, prototypes, and small to medium batches." },
-        { "q": "What materials do you mill?", "a": "All standard tool steels, stainless, aluminium, carbide (WIDIA), and hard steels up to 65 HRC." },
+        { "q": "What is the maximum hardness you can mill?", "a": "Up to 65 HRC, including hardened tool steels and solid carbide (WIDIA)." },
+        { "q": "Do you offer 5-axis milling?", "a": "Yes — for all materials, including hard materials and solid carbide." },
+        { "q": "Can you produce single parts or only batches?", "a": "Both — single parts, prototypes, and small to medium batches." },
+        { "q": "What materials do you mill?", "a": "All standard tool steels, stainless steels, aluminium, solid carbide (WIDIA), and hardened steels up to 65 HRC." },
         { "q": "Where are you located?", "a": "Spodnja Idrija, Slovenia. We ship across the EU." }
       ],
       "ctaLabel": "Request a quote"
@@ -123,19 +125,19 @@
       "whatHeading": "What we turn",
       "what": [
         "Turning of all types of materials",
-        "Prototype manufacture",
+        "Prototype manufacturing",
         "Small to medium batch production"
       ],
       "materialsHeading": "Materials and specifications",
-      "materials": "Structural and stainless steels, tool steels, aluminium, copper, brass, plastics. Diameters from micro-scale to typical machine-building parts.",
+      "materials": "Structural and stainless steels, tool steels, aluminium, copper, brass, plastics. Diameters from micro-dimensions to typical machine-building components.",
       "applicationsHeading": "Typical applications",
       "applications": "Precision shafts, pins, bushings, punches, guides, components for stamping and injection-moulding tools, prototypes prior to series production.",
       "faqHeading": "Frequently asked questions",
       "faq": [
-        { "q": "What precision do you achieve in turning?", "a": "Tolerances are matched to project requirements, including micrometre ranges." },
-        { "q": "Do you produce prototypes?", "a": "Yes — from single pieces to prototype runs." },
+        { "q": "What precision do you achieve in turning?", "a": "Tolerances are strictly matched to project requirements, including micrometre ranges." },
+        { "q": "Do you produce prototypes?", "a": "Yes — from single parts to prototype runs." },
         { "q": "What materials do you turn?", "a": "All common structural, stainless, and tool steels, aluminium, copper, brass, and plastics." },
-        { "q": "What batch sizes are typical?", "a": "Small to medium batches, often combined with milling and grinding." }
+        { "q": "What batch sizes are typical?", "a": "Small to medium batch production, often combined with milling and grinding." }
       ],
       "ctaLabel": "Request a quote"
     },
@@ -151,15 +153,15 @@
         "4-axis profile grinding"
       ],
       "materialsHeading": "Materials and specifications",
-      "materials": "Hardened tool steels, carbide (WIDIA), stainless steels. Typically for stamping and forming tools where fine surface finish and tight tolerances are required.",
+      "materials": "Hardened tool steels, solid carbide (WIDIA), stainless steels. Typically for stamping and forming tools where fine surface finishes and tight tolerances are required.",
       "applicationsHeading": "Typical applications",
-      "applications": "Stamping plates, form inserts, guides, tool profile sides, final finishing of hardened components.",
+      "applications": "Cutting plates for stamping, mould inserts, guides, tool profile sides, final finishing of hardened components.",
       "faqHeading": "Frequently asked questions",
       "faq": [
-        { "q": "What surface roughness do you achieve?", "a": "Depending on requirements — we deliver finishes at the quality level the project demands." },
-        { "q": "Do you offer 4-axis profile grinding?", "a": "Yes — 4-axis profile grinding for demanding geometries." },
-        { "q": "What materials do you grind?", "a": "Hardened tool steels, carbide (WIDIA), and stainless steels." },
-        { "q": "Do you combine grinding with other services?", "a": "Yes — often as the final finishing step after milling of precision components." }
+        { "q": "What surface quality do you achieve?", "a": "Depending on requirements — we deliver final ground surfaces to the specified quality level." },
+        { "q": "Do you offer 4-axis profile grinding?", "a": "Yes — 4-axis profile grinding for machining demanding geometries." },
+        { "q": "What materials do you grind?", "a": "Hardened tool steels, solid carbide (WIDIA), and stainless steels." },
+        { "q": "Do you combine grinding with other services?", "a": "Yes — it often serves as the final finishing step after milling precision components." }
       ],
       "ctaLabel": "Request a quote"
     }
@@ -167,21 +169,21 @@
   "alt": {
     "logo": "RUDA Orodjarstvo — precision toolmaking",
     "services": {
-      "milling": "5-axis CNC milling machine at RUDA Orodjarstvo workshop",
-      "turning": "CNC lathe at RUDA Orodjarstvo workshop",
-      "grinding": "Grinding machine at RUDA Orodjarstvo workshop"
+      "milling": "5-axis CNC milling machine at the RUDA Orodjarstvo workshop",
+      "turning": "CNC lathe at the RUDA Orodjarstvo workshop",
+      "grinding": "Grinding machine at the RUDA Orodjarstvo workshop"
     },
     "strengths": {
-      "hardCarbide": "Machined part in hardened steel and carbide",
+      "hardCarbide": "Machined part made of hardened steel and solid carbide",
       "precision": "Precision component with tight tolerances",
-      "stamping": "Stamping die in hardened tool steel",
-      "micro": "Micro precision part"
+      "stamping": "Stamping tool made of hardened steel",
+      "micro": "Micro-precision part"
     }
   },
   "contact": {
     "heading": "Contact",
-    "eyebrow": "General information",
-    "companyHeading": "Company information",
+    "eyebrow": "General Information",
+    "companyHeading": "Company Information",
     "company": "Damjan Rupnik s.p.",
     "address": "Ledine 34, 5281 Spodnja Idrija",
     "country": "Slovenia",
