@@ -15,6 +15,10 @@ interface Props {
 }
 const { t } = Astro.props;
 
+// Hero media on mobile (<=768px): 'video' reuses the desktop video; 'carousel'
+// uses the image carousel (original behavior). Flip this to switch back.
+const mobileMedia: 'video' | 'carousel' = 'video';
+
 const slides = t.hero.slides.map((label, i) => ({
   label,
   src: `/images/hero/slide-${i + 1}.jpg`,
@@ -27,7 +31,7 @@ const facts = [
   [t.hero.facts.specialtyLabel, t.hero.facts.specialtyValue],
 ];
 ---
-<section id="hero" class="hero">
+<section id="hero" class:list={['hero', `hero--m-${mobileMedia}`]}>
   <div class="hero__media">
     <video
       class="hero__video"
@@ -232,9 +236,9 @@ const facts = [
   }
 
   @media (max-width: 768px) {
-    .hero__video { display: none; }
-    .hero__carousel { display: block; }
     .hero__content { padding: 48px 24px; }
+    .hero--m-carousel .hero__video { display: none; }
+    .hero--m-carousel .hero__carousel { display: block; }
   }
   @media (max-width: 480px) {
     .hero__content { padding: 36px 20px; }
@@ -246,9 +250,13 @@ const facts = [
   const desktop = window.matchMedia('(min-width: 769px)');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // Desktop: play the video (no autoplay attribute, so mobile never loads it).
+  const heroEl = document.querySelector('.hero');
+  const videoOnMobile = heroEl?.classList.contains('hero--m-video') ?? false;
+
+  // Play the video on desktop, and on mobile too when video mode is active
+  // (no autoplay attribute, so it only loads when we call play()).
   const video = document.querySelector<HTMLVideoElement>('.hero__video');
-  if (video && desktop.matches && !reduce.matches) {
+  if (video && !reduce.matches && (desktop.matches || videoOnMobile)) {
     video.play().catch(() => {});
   }
 
@@ -282,5 +290,5 @@ const facts = [
     });
   });
 
-  if (!desktop.matches && slides.length > 1) start();
+  if (!desktop.matches && !videoOnMobile && slides.length > 1) start();
 </script>
