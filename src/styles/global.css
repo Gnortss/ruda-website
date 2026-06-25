@@ -57,13 +57,14 @@ html {
 html,
 body {
   min-height: 100%;
+  overflow-x: hidden; /* fallback for Safari < 16 */
+  overflow-x: clip;
 }
 
 body {
   font-family: var(--font-sans);
   background: #fff;
   color: var(--color-dark);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
