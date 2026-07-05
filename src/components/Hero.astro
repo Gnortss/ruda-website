@@ -54,7 +54,7 @@ const facts = [
             label={s.label}
             aspect="3/2"
             dark
-            imgStyle="height: 100%; min-height: calc(100vh - 64px); object-position: center;"
+            imgStyle="height: 100%; min-height: calc(100vh - var(--nav-height)); object-position: center;"
           />
         </div>
       ))}
@@ -100,13 +100,13 @@ const facts = [
 <style>
   .hero {
     position: relative;
-    padding-top: 64px;
+    padding-top: var(--nav-height);
     overflow: hidden;
     min-height: 100vh;
   }
   .hero__media {
     position: absolute;
-    inset: 64px 0 0 0;
+    inset: var(--nav-height) 0 0 0;
     overflow: hidden;
   }
   .hero__video {
@@ -114,7 +114,7 @@ const facts = [
     inset: 0;
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh - var(--nav-height));
     object-fit: cover;
     object-position: center;
   }
@@ -130,7 +130,7 @@ const facts = [
   .hero__slide :global(img) {
     width: 100%;
     height: 100%;
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh - var(--nav-height));
   }
   .hero__overlay {
     position: absolute;
@@ -148,7 +148,7 @@ const facts = [
     z-index: 2;
     max-width: 640px;
     padding: 80px 56px;
-    min-height: calc(100vh - 64px);
+    min-height: calc(100vh - var(--nav-height));
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -76,7 +76,7 @@ const links = [
 <style>
   .site-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: background 0.3s ease, border-color 0.3s ease; }
   .site-nav.is-scrolled { background: rgba(255,255,255,0.97); border-bottom-color: #eee; }
-  .site-nav__inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 64px; }
+  .site-nav__inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: var(--nav-height); }
   .site-nav__logo img { height: 56px; cursor: pointer; }
   .site-nav__desktop { display: flex; gap: 32px; align-items: center; }
   .site-nav__link { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #888; cursor: pointer; text-decoration: none; transition: color 0.2s; }
@@ -100,6 +100,12 @@ const links = [
   @media (max-width: 768px) {
     .site-nav__desktop { display: none; }
     .site-nav__burger { display: block; }
+  }
+  @media (min-width: 769px) {
+    .site-nav__logo img { height: 76px; }
+    .site-nav__link { font-size: 14px; }
+    .site-nav__lang { font-size: 11px; }
+    .site-nav__divider { height: 24px; }
   }
 </style>
 
