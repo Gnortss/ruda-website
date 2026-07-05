@@ -88,9 +88,9 @@ const links = [
   .site-nav__burger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
   .site-nav__burger span { display: block; width: 22px; height: 2px; background: var(--color-dark); margin-bottom: 5px; transition: transform 0.3s, opacity 0.2s; }
   .site-nav__burger span:last-child { margin-bottom: 0; }
-  .site-nav__burger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translateY(5px); }
+  .site-nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .site-nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  .site-nav__burger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translateY(-5px); }
+  .site-nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .site-nav__mobile { background: #fff; border-top: 1px solid #eee; padding: 12px 24px 20px; display: flex; flex-direction: column; gap: 4px; }
   .site-nav__mobile[hidden] { display: none; }
   .site-nav__mobile-link { font-size: 14px; font-weight: 500; padding: 12px 0; color: #555; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
