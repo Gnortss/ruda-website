@@ -1,6 +1,8 @@
-# Hero video — implementation guide (future enhancement)
+# Hero video — implementation guide
 
-Status: **deferred**. The current site ships with a 4-slide image carousel. This document captures the design and implementation steps for swapping in a fullscreen background video on desktop while preserving the image carousel on mobile.
+Status: **shipped**. The site ships a fullscreen background video hero. This document captures the design and the encoding recipe used to produce the video assets.
+
+> **Note:** The **Source material**, **Encoding spec**, and **ffmpeg recipes** sections below have been reconciled against the actual shipped assets (`public/videos/hero.mp4`, `hero.webm`, `hero-poster.jpg`) and are the source of truth for re-encoding a new hero video. The **HTML markup**, **CSS**, **LCP preload**, and other design sections farther down reflect the original design intent and have **not** been re-verified against the current `Hero.astro` — treat them as reference, not ground truth.
 
 ## Intent
 
@@ -26,50 +28,53 @@ Target metrics (PageSpeed on mobile, where mobile gets carousel only):
 
 ## Source material
 
-- **Length**: 8–12 seconds, looped seamlessly (first and last frame should match or fade)
+- **Length**: the shipped hero is a ~30-second clip played as a seamless `loop`. A tight 8–12 s loop would be smaller; the current asset trades size for a longer sequence. For a seamless join, first and last frame should match or fade.
 - **Content**: 5-axis CNC mid-cut, workshop overview pan, or close-up of a finished precision part. Slow, deliberate motion is more premium than fast cuts.
-- **Resolution of source**: 4K is fine for editing; final output is 1080p. Don't ship 4K.
+- **Resolution of source**: 4K is fine for editing; final output is **720p** (see spec below). Don't ship 4K.
 
 ## Encoding spec
 
-Deliver three sources. Browsers pick the best supported.
+Two sources ship. Browsers pick the best supported. (No AV1 source is produced — the original three-source plan was dropped.)
 
-| Format | Codec | Container | Target size | Browser support |
-|---|---|---|---|---|
-| Primary | AV1 | `.webm` | ~1.2 MB | Chrome 113+, Firefox 100+, Safari 17.4+ |
-| Mid | VP9 | `.webm` | ~2.0 MB | All modern except old Safari |
-| Fallback | H.264 high profile | `.mp4` | ~2.8 MB | Universal |
+| Format | Codec | Container | Actual size | Bitrate | Browser support |
+|---|---|---|---|---|---|
+| Primary | VP9 | `.webm` | ~5.75 MB | ~1.5 Mbps | All modern except old Safari |
+| Fallback | H.264 high profile | `.mp4` | ~5.68 MB | ~1.5 Mbps | Universal |
 
-Common encoding rules:
-- **Resolution**: 1920×1080
-- **Frame rate**: 24 fps
+> Sizes above are for the shipped ~30 s clip. Size scales with clip length — a 10 s clip at the same settings is ~1.9 MB. Note the ~5.7 MB assets sit **above** the 5 MB build guardrail described later in this doc; either raise that budget or shorten/re-compress if you re-encode.
+
+Common encoding rules (as shipped):
+- **Resolution**: 1280×720
+- **Frame rate**: 30 fps
+- **Pixel format / color**: `yuv420p`, BT.709
 - **No audio track** (smaller file + required for autoplay)
-- **2-pass encoding** for quality at low bitrate
+- **Target bitrate ~1.5 Mbps**, 2-pass for a predictable size
 - **`+faststart`** flag on MP4 so playback can begin before full download
 - **Strip metadata** to save bytes
 
 ### ffmpeg recipes
 
+> **Automated:** these steps (plus backing up the current assets) are wrapped in the `encode-hero-video` skill — `bash .claude/skills/encode-hero-video/encode-hero.sh "source.mov"`. The recipes below are the same commands, documented for reference or manual runs.
+
+These reproduce the shipped assets: 1280×720, 30 fps, no audio, ~1.5 Mbps, 2-pass. Point them at your new source clip. (2-pass writes a log file in the working dir; run each codec's two passes together. On Windows use `NUL` instead of `/dev/null` for the pass-1 sink.)
+
 ```bash
-# H.264 mp4 — universal fallback
-ffmpeg -i source.mov \
-  -c:v libx264 -profile:v high -crf 28 -preset slow \
-  -vf "scale=1920:1080" -r 24 -an \
-  -movflags +faststart -map_metadata -1 \
+# H.264 mp4 — universal fallback (2-pass, ~1.45 Mbps)
+ffmpeg -i source.mov -c:v libx264 -profile:v high -pix_fmt yuv420p -b:v 1450k -pass 1 \
+  -vf "scale=1280:720" -r 30 -an -f mp4 -map_metadata -1 -y /dev/null
+ffmpeg -i source.mov -c:v libx264 -profile:v high -pix_fmt yuv420p -b:v 1450k -pass 2 \
+  -vf "scale=1280:720" -r 30 -an -movflags +faststart -map_metadata -1 \
   hero.mp4
 
-# VP9 webm
-ffmpeg -i source.mov \
-  -c:v libvpx-vp9 -crf 35 -b:v 1M \
-  -vf "scale=1920:1080" -r 24 -an -map_metadata -1 \
+# VP9 webm — primary (2-pass, ~1.5 Mbps)
+ffmpeg -i source.mov -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 1500k -pass 1 \
+  -vf "scale=1280:720" -r 30 -an -f null /dev/null
+ffmpeg -i source.mov -c:v libvpx-vp9 -pix_fmt yuv420p -b:v 1500k -pass 2 \
+  -vf "scale=1280:720" -r 30 -an -map_metadata -1 \
   hero.webm
-
-# AV1 webm — smallest, best browsers
-ffmpeg -i source.mov \
-  -c:v libsvtav1 -crf 38 -preset 6 \
-  -vf "scale=1920:1080" -r 24 -an -map_metadata -1 \
-  hero.av1.webm
 ```
+
+To trade quality for a smaller file instead of pinning the bitrate, drop `-b:v … -pass N` and use CRF single-pass (`-crf 30` for x264, `-crf 33 -b:v 0` for vp9); size then varies with content.
 
 ### Poster image
 
@@ -77,7 +82,7 @@ Extract a representative frame for the LCP poster:
 
 ```bash
 ffmpeg -i source.mov -ss 00:00:02 -vframes 1 \
-  -vf "scale=1920:1080" -q:v 4 \
+  -vf "scale=1280:720" -q:v 4 \
   hero-poster.jpg
 ```
 
@@ -85,18 +90,14 @@ Convert poster to WebP/AVIF via Astro's `<Image>` at build time (automatic).
 
 ## File placement
 
+As shipped:
+
 ```
 public/
   videos/
-    hero.av1.webm       (AV1, smallest)
-    hero.webm           (VP9, mid)
+    hero.webm           (VP9, primary)
     hero.mp4            (H.264, fallback)
-  images/
-    hero/
-      slide-1-poster.jpg   (also serves as carousel slide 1)
-      slide-2.jpg
-      slide-3.jpg
-      slide-4.jpg
+    hero-poster.jpg     (720p LCP poster)
 ```
 
 ## HTML markup
