@@ -12,6 +12,7 @@ dist
 # Source video (encoded outputs live in public/videos/)
 /RUDA_2_out_720.mp4
 /RUDA_hero_zastava.mp4
+/RUDA_website_hero_video.mp4
 
 # Hero asset backups (created by the encode-hero-video skill)
 /public/videos/old/
