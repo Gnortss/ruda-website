@@ -7,7 +7,9 @@ interface Props {
 }
 const { t } = Astro.props;
 
-const files = ['OR-1.jpg', 'OR-2.jpg', 'OR-8.jpg', 'OR-12.jpg', 'OR-14.jpg', 'OR-15.jpg', 'OR-3.jpg', 'OR-4.jpg', 'OR-5.jpg'];
+const files = ['OR-1.jpg', 'OR-2.jpg', 'OR-8.jpg', 'OR-12.jpg', 'OR-14.jpg', 'OR-15.jpg', 'OR-3.jpg', 'OR-16.jpg', 'OR-4.jpg', 'OR-5.jpg'];
+// Two large tiles (2×2 on desktop) keep the grid rows full: 0 top-left, 7 bottom-right.
+const featured = [0, 7];
 const items = files.map((file) => ({
   label: t.products.imageAlt,
   src: `/images/products/${file}`,
@@ -22,7 +24,7 @@ const items = files.map((file) => ({
 
     <div class="products__grid">
       {items.map((p, i) => (
-        <div class={`reveal-scale products__cell${i === 0 ? ' is-feature' : ''}`} style={`transition-delay: ${i * 0.06}s`}>
+        <div class={`reveal-scale products__cell${featured.includes(i) ? ' is-feature' : ''}`} style={`transition-delay: ${i * 0.06}s`}>
           <SmartImage
             src={p.src}
             alt={p.label}
